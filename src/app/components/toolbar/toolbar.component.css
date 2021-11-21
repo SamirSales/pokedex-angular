@@ -16,20 +16,6 @@
     margin: 0 16px;
 }
 
-/* .toolbar .twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-}
-
-.toolbar .info-logo {
-    height: 40px;
-    margin: 0 16px;
-} */
-
-.spacer {
-    flex: 1;
-}
-
 .toolbar #link-info {
     height: 20px;
     margin: 0px 16px;
@@ -37,4 +23,8 @@
 
 .toolbar #link-info:hover {
     opacity: 0.8;
+}
+
+.spacer {
+    flex: 1;
 }
