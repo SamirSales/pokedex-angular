@@ -43,6 +43,17 @@ a:hover {
     color: #125699;
 }
 
+footer {
+    color: white;
+    background-color: rgb(3, 3, 41);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 3px;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
 }
