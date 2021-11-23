@@ -9,9 +9,10 @@ import { PokemonsViewComponent } from './views/pokemons-view/pokemons-view.compo
 import { MoreInfoViewComponent } from './views/more-info-view/more-info-view.component';
 import { PageNotFoundViewComponent } from './views/page-not-found-view/page-not-found-view.component';
 import { TableComponent } from './components/table/table.component';
+import { SearchTextFieldComponent } from './components/search-text-field/search-text-field.component';
 
 @NgModule({
-    declarations: [AppComponent, ToolbarComponent, PokemonTableComponent, PokemonsViewComponent, MoreInfoViewComponent, PageNotFoundViewComponent, TableComponent],
+    declarations: [AppComponent, ToolbarComponent, PokemonTableComponent, PokemonsViewComponent, MoreInfoViewComponent, PageNotFoundViewComponent, TableComponent, SearchTextFieldComponent],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent]

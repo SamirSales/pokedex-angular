@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'app-pokemon-table',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./pokemon-table.component.css']
 })
 export class PokemonTableComponent implements OnInit {
+    @Input() searchText: string = '';
+
     headers = [
         { text: 'Number', input: 'number' },
         { text: 'Image', input: 'image' },

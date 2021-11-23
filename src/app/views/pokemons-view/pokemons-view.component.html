@@ -1,1 +1,2 @@
-<app-pokemon-table></app-pokemon-table>
+<app-search-text-field [(ngModel)]="searchText"></app-search-text-field>
+<app-pokemon-table [searchText]="searchText"></app-pokemon-table>

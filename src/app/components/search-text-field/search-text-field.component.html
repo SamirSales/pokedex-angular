@@ -1,0 +1,7 @@
+<input
+    id="search-text-field"
+    type="text"
+    placeholder="Search..."
+    [value]="ngModel"
+    (input)="onChangeValue($event.target.value)"
+/>
