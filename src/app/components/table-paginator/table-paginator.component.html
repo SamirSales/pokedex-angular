@@ -1,0 +1,11 @@
+<div id="table-paginator">
+    <button (click)="onClickLeftButton()">🡨</button>
+
+    <span *ngFor="let element of getElements()">
+        <button [class]="element.class" (click)="onClick(element)">{{ element.value }}</button>
+    </span>
+
+    <!-- <button class="three-points">...</button> -->
+
+    <button (click)="onClickRightButton()">🡪</button>
+</div>

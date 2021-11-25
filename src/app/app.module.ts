@@ -10,9 +10,10 @@ import { MoreInfoViewComponent } from './views/more-info-view/more-info-view.com
 import { PageNotFoundViewComponent } from './views/page-not-found-view/page-not-found-view.component';
 import { TableComponent } from './components/table/table.component';
 import { SearchTextFieldComponent } from './components/search-text-field/search-text-field.component';
+import { TablePaginatorComponent } from './components/table-paginator/table-paginator.component';
 
 @NgModule({
-    declarations: [AppComponent, ToolbarComponent, PokemonTableComponent, PokemonsViewComponent, MoreInfoViewComponent, PageNotFoundViewComponent, TableComponent, SearchTextFieldComponent],
+    declarations: [AppComponent, ToolbarComponent, PokemonTableComponent, PokemonsViewComponent, MoreInfoViewComponent, PageNotFoundViewComponent, TableComponent, SearchTextFieldComponent, TablePaginatorComponent],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent]
