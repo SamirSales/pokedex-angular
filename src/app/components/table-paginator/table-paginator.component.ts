@@ -39,7 +39,14 @@ export class TablePaginatorComponent implements OnInit {
                 elements.push(this.getThreePointsButtonElement());
 
                 if (index < this.selectedIndex) {
-                    index = marge > 0 ? this.selectedIndex - marge : this.selectedIndex - 1;
+                    if (marge > 0) {
+                        if (marge + this.selectedIndex > this.pageQuantity) {
+                            const compensation = marge + this.selectedIndex - this.pageQuantity;
+                            index = this.selectedIndex - marge - compensation - 1;
+                        } else index = this.selectedIndex - marge;
+                    } else {
+                        index = this.selectedIndex - 1;
+                    }
                 } else {
                     index = this.pageQuantity - 1;
                 }
@@ -55,8 +62,15 @@ export class TablePaginatorComponent implements OnInit {
         }
 
         const marge = this.getMarge();
-        const compensation = this.selectedIndex - marge < 0 ? (this.selectedIndex - marge - 1) * -1 : 0;
-        return index >= this.selectedIndex - marge && index <= this.selectedIndex + marge + compensation;
+
+        if (this.selectedIndex - marge < 0) {
+            const compensation = marge - this.selectedIndex;
+            return index >= this.selectedIndex - marge && index <= this.selectedIndex + marge + compensation;
+        } else if (marge + this.selectedIndex > this.pageQuantity) {
+            const compensation = marge + this.selectedIndex - this.pageQuantity;
+            return index >= this.selectedIndex - compensation - marge;
+        }
+        return index >= this.selectedIndex - marge && index <= this.selectedIndex + marge;
     }
 
     getMarge() {
