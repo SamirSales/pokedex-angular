@@ -8,6 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PokemonTableComponent implements OnInit {
     @Input() searchText: string = '';
 
+    pageQuantity: number = 23;
+    selectedIndex: number = 3;
+
     headers = [
         { text: 'Number', input: 'number' },
         { text: 'Image', input: 'image' },

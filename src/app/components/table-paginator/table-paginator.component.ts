@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, SimpleChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, SimpleChanges, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({
     selector: 'app-table-paginator',
@@ -8,9 +8,10 @@ import { Component, OnInit, ViewChild, ElementRef, SimpleChanges, ChangeDetector
 export class TablePaginatorComponent implements OnInit {
     @ViewChild('tablePaginatorContainer', { static: false }) tablePaginatorContainer: ElementRef;
 
-    pageQuantity = 30;
-    selectedIndex = 4;
-    widthContainer = 0;
+    @Input() pageQuantity: number = 10;
+    @Input() selectedIndex: number = 1;
+
+    widthContainer: number = 0;
 
     constructor(tablePaginatorContainer: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
         this.tablePaginatorContainer = tablePaginatorContainer;
