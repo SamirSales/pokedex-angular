@@ -30,19 +30,38 @@ export class TablePaginatorComponent implements OnInit {
 
     getElements() {
         const elements = [];
-        const middleIndex = this.getMiddleIndex();
-        const isPageQuantityToLarge = this.isPageQuantityToLarge();
+        const marge = this.getMarge();
 
-        for (let i = 1; i <= this.pageQuantity; i++) {
-            if (isPageQuantityToLarge && i === middleIndex) {
-                elements.push(this.getThreePointsButtonElement());
-                i = this.pageQuantity - middleIndex;
+        for (let index = 1; index <= this.pageQuantity; index++) {
+            if (this.isIndexInVisibleRange(index)) {
+                elements.push(this.getButtonElementByValue(index));
             } else {
-                elements.push(this.getButtonElementByValue(i));
+                elements.push(this.getThreePointsButtonElement());
+
+                if (index < this.selectedIndex) {
+                    index = marge > 0 ? this.selectedIndex - marge : this.selectedIndex - 1;
+                } else {
+                    index = this.pageQuantity - 1;
+                }
             }
         }
 
         return elements;
+    }
+
+    isIndexInVisibleRange(index: any) {
+        if (!this.isPageQuantityToLarge() || index == 1 || index == this.pageQuantity || index == this.selectedIndex) {
+            return true;
+        }
+
+        const marge = this.getMarge();
+        const compensation = this.selectedIndex - marge < 0 ? (this.selectedIndex - marge - 1) * -1 : 0;
+        return index >= this.selectedIndex - marge && index <= this.selectedIndex + marge + compensation;
+    }
+
+    getMarge() {
+        const notArrowButtonQuantityPossible = this.getNotArrowButtonQuantityPossible();
+        return Math.floor(notArrowButtonQuantityPossible / 2) - 2;
     }
 
     getThreePointsButtonElement() {
@@ -68,22 +87,25 @@ export class TablePaginatorComponent implements OnInit {
     getPageButtonQuantity() {
         const arrowButtonQuantity = 2;
         const threePointsButtonQuantity = 1;
-        const buttonQuantityPossible = this.getButtonQuantityPossible();
+        const notArrowButtonQuantityPossible = this.getNotArrowButtonQuantityPossible();
 
         if (this.isPageQuantityToLarge()) {
-            return buttonQuantityPossible - arrowButtonQuantity - threePointsButtonQuantity;
+            return notArrowButtonQuantityPossible - arrowButtonQuantity - threePointsButtonQuantity;
         }
         return this.pageQuantity;
     }
 
     isPageQuantityToLarge() {
-        const buttonQuantityPossible = this.getButtonQuantityPossible();
-        return this.pageQuantity > buttonQuantityPossible;
+        const notArrowButtonQuantityPossible = this.getNotArrowButtonQuantityPossible();
+        return this.pageQuantity > notArrowButtonQuantityPossible;
     }
 
-    getButtonQuantityPossible() {
+    getNotArrowButtonQuantityPossible() {
         const buttonWidth = 44;
-        return Math.floor(this.widthContainer / buttonWidth) - 2;
+        const arrowButtonsQuantity = 2;
+        const errorPrevention = 1;
+        const result = Math.floor(this.widthContainer / buttonWidth) - arrowButtonsQuantity - errorPrevention;
+        return result > 0 ? result : 1;
     }
 
     onClick(element: any) {
