@@ -10,6 +10,7 @@ export class PokemonTableComponent implements OnInit {
 
     pageQuantity: number = 23;
     selectedIndex: number = 3;
+    isLoading: boolean = true;
 
     headers = [
         { text: 'Number', input: 'number' },

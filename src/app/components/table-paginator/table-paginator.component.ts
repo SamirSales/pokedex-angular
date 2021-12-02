@@ -19,6 +19,7 @@ export class TablePaginatorComponent implements OnInit {
 
     @Input() pageQuantity: number = 10;
     @Input() selectedIndex: number = 1;
+    @Input() disabled: boolean = false;
     @Output() changeSelectedIndex: EventEmitter<number> = new EventEmitter();
 
     widthContainer: number = 0;
@@ -128,20 +129,24 @@ export class TablePaginatorComponent implements OnInit {
         return result > 0 ? result : 1;
     }
 
+    getContainerCssClasses() {
+        return this.disabled ? 'disabled-container' : '';
+    }
+
     onClick(element: any) {
-        if (element.hasAction) {
+        if (element.hasAction && !this.disabled) {
             this.changeSelectedIndex.emit(element.value);
         }
     }
 
     onClickLeftButton() {
-        if (this.selectedIndex > 1) {
+        if (this.selectedIndex > 1 && !this.disabled) {
             this.changeSelectedIndex.emit(this.selectedIndex - 1);
         }
     }
 
     onClickRightButton() {
-        if (this.selectedIndex < this.pageQuantity) {
+        if (this.selectedIndex < this.pageQuantity && !this.disabled) {
             this.changeSelectedIndex.emit(this.selectedIndex + 1);
         }
     }

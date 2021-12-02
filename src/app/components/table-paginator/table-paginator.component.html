@@ -1,4 +1,4 @@
-<div id="table-paginator" #tablePaginatorContainer>
+<div id="table-paginator" [class]="getContainerCssClasses()" #tablePaginatorContainer>
     <button (click)="onClickLeftButton()">🡨</button>
 
     <span *ngFor="let element of getElements()">
