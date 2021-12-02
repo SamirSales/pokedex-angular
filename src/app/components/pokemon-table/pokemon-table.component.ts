@@ -32,4 +32,8 @@ export class PokemonTableComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {}
+
+    onChangeSelectedPaginatorIndex(index: number) {
+        this.selectedIndex = index;
+    }
 }

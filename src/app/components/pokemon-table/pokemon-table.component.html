@@ -1,3 +1,8 @@
 <p *ngIf="searchText.trim() != ''">Searching {{ searchText }}...</p>
 <app-table [headers]="headers" [items]="pokemons"></app-table>
-<app-table-paginator [pageQuantity]="pageQuantity" [selectedIndex]="selectedIndex"></app-table-paginator>
+
+<app-table-paginator
+    [pageQuantity]="pageQuantity"
+    [selectedIndex]="selectedIndex"
+    (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
+></app-table-paginator>

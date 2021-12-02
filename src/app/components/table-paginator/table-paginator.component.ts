@@ -1,4 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, SimpleChanges, ChangeDetectorRef, Input } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    ElementRef,
+    ChangeDetectorRef,
+    Input,
+    Output,
+    EventEmitter
+} from '@angular/core';
 
 @Component({
     selector: 'app-table-paginator',
@@ -10,6 +19,7 @@ export class TablePaginatorComponent implements OnInit {
 
     @Input() pageQuantity: number = 10;
     @Input() selectedIndex: number = 1;
+    @Output() changeSelectedIndex: EventEmitter<number> = new EventEmitter();
 
     widthContainer: number = 0;
 
@@ -22,11 +32,6 @@ export class TablePaginatorComponent implements OnInit {
     ngAfterViewInit() {
         this.widthContainer = this.tablePaginatorContainer.nativeElement.offsetWidth;
         this.changeDetectorRef.detectChanges();
-    }
-
-    ngOnChanges(changes: SimpleChanges) {
-        console.log('changes', changes);
-        // changes of inputs
     }
 
     getElements() {
@@ -125,19 +130,19 @@ export class TablePaginatorComponent implements OnInit {
 
     onClick(element: any) {
         if (element.hasAction) {
-            this.selectedIndex = element.value;
+            this.changeSelectedIndex.emit(element.value);
         }
     }
 
     onClickLeftButton() {
         if (this.selectedIndex > 1) {
-            this.selectedIndex -= 1;
+            this.changeSelectedIndex.emit(this.selectedIndex - 1);
         }
     }
 
     onClickRightButton() {
         if (this.selectedIndex < this.pageQuantity) {
-            this.selectedIndex += 1;
+            this.changeSelectedIndex.emit(this.selectedIndex + 1);
         }
     }
 }
