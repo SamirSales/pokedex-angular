@@ -11,9 +11,10 @@ import { PageNotFoundViewComponent } from './views/page-not-found-view/page-not-
 import { TableComponent } from './components/table/table.component';
 import { SearchTextFieldComponent } from './components/search-text-field/search-text-field.component';
 import { TablePaginatorComponent } from './components/table-paginator/table-paginator.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
-    declarations: [AppComponent, ToolbarComponent, PokemonTableComponent, PokemonsViewComponent, MoreInfoViewComponent, PageNotFoundViewComponent, TableComponent, SearchTextFieldComponent, TablePaginatorComponent],
+    declarations: [AppComponent, ToolbarComponent, PokemonTableComponent, PokemonsViewComponent, MoreInfoViewComponent, PageNotFoundViewComponent, TableComponent, SearchTextFieldComponent, TablePaginatorComponent, LoaderComponent],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent]
