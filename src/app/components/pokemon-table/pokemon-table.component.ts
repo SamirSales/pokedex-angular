@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PokemonHttpClientServiceService } from '../../services/pokemon-http-client-service.service';
 
 @Component({
     selector: 'app-pokemon-table',
@@ -30,11 +31,15 @@ export class PokemonTableComponent implements OnInit {
         { number: 8, image: 'src8', name: 'name8', type: 'type8' }
     ];
 
-    constructor() {}
+    constructor(public pokemonHttpClientServiceService: PokemonHttpClientServiceService) {}
 
     ngOnInit(): void {}
 
     onChangeSelectedPaginatorIndex(index: number) {
         this.selectedIndex = index;
+    }
+
+    clickTest() {
+        this.pokemonHttpClientServiceService.getPokemonById(1);
     }
 }
