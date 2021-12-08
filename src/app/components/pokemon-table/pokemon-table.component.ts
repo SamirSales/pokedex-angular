@@ -40,6 +40,13 @@ export class PokemonTableComponent implements OnInit {
     }
 
     clickTest() {
-        this.pokemonHttpClientServiceService.getPokemonById(1);
+        this.pokemonHttpClientServiceService.getByNameOrId(1).subscribe({
+            next: (data) => {
+                console.log('data', data);
+            },
+            error: (error) => {
+                console.log('error!', error);
+            }
+        });
     }
 }
