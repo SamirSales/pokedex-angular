@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonHttpClientServiceService } from '../../services/pokemon-http-client-service.service';
+import { PokemonHttpClientService } from '../../services/pokemon-http-client.service';
 
 @Component({
     selector: 'app-pokemon-table',
@@ -9,44 +9,47 @@ import { PokemonHttpClientServiceService } from '../../services/pokemon-http-cli
 export class PokemonTableComponent implements OnInit {
     @Input() searchText: string = '';
 
-    pageQuantity: number = 23;
-    selectedIndex: number = 3;
+    pokemonsPerPage: number = 10;
+    pageQuantity: number = 10;
+    selectedIndex: number = 1;
     isLoading: boolean = false;
 
     headers = [
-        { text: 'Number', input: 'number' },
-        { text: 'Image', input: 'image' },
+        { text: 'Number', input: 'id' },
+        { text: 'Image', input: 'imageURL' },
         { text: 'Name', input: 'name' },
-        { text: 'Type', input: 'type' }
+        { text: 'Types', input: 'types' }
     ];
 
-    pokemons = [
-        { number: 1, image: 'src1', name: 'name1', type: 'type1' },
-        { number: 2, image: 'src2', name: 'name2', type: 'type2' },
-        { number: 3, image: 'src3', name: 'name3', type: 'type3' },
-        { number: 4, image: 'src4', name: 'name4', type: 'type4' },
-        { number: 5, image: 'src5', name: 'name5', type: 'type5' },
-        { number: 6, image: 'src6', name: 'name6', type: 'type6' },
-        { number: 7, image: 'src7', name: 'name7', type: 'type7' },
-        { number: 8, image: 'src8', name: 'name8', type: 'type8' }
-    ];
+    pokemons = [];
 
-    constructor(public pokemonHttpClientServiceService: PokemonHttpClientServiceService) {}
+    constructor(public PokemonHttpClientService: PokemonHttpClientService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.refreshData();
+    }
 
     onChangeSelectedPaginatorIndex(index: number) {
         this.selectedIndex = index;
+        this.refreshData();
     }
 
-    clickTest() {
-        this.pokemonHttpClientServiceService.getByNameOrId(1).subscribe({
-            next: (data) => {
-                console.log('data', data);
+    refreshData() {
+        this.isLoading = true;
+        this.PokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
+            next: (pokemonModels) => {
+                console.log('data', pokemonModels);
+                this.pokemons = pokemonModels;
+                this.isLoading = false;
             },
             error: (error) => {
                 console.log('error!', error);
+                this.isLoading = false;
             }
         });
+    }
+
+    getPageQuantity() {
+        return 150 / this.pokemonsPerPage;
     }
 }

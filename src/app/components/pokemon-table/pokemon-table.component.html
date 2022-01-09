@@ -3,11 +3,9 @@
 
 <app-table-paginator
     [disabled]="isLoading"
-    [pageQuantity]="pageQuantity"
+    [pageQuantity]="getPageQuantity()"
     [selectedIndex]="selectedIndex"
     (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
 ></app-table-paginator>
 
 <app-loader *ngIf="isLoading"></app-loader>
-
-<button (click)="clickTest()">Click teste</button>
