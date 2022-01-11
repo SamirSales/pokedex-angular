@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
     selector: 'app-table',
@@ -11,6 +11,8 @@ export class TableComponent implements OnInit {
     ];
 
     @Input() items: any = [];
+
+    @ContentChild(TemplateRef) templateRef: any;
 
     constructor() {}
 

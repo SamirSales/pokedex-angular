@@ -1,5 +1,13 @@
 <p *ngIf="searchText.trim() != ''">Searching {{ searchText }}...</p>
-<app-table [headers]="headers" [items]="pokemons"></app-table>
+
+<app-table [headers]="headers" [items]="pokemons">
+    <ng-template let-item>
+        <span *ngIf="item.header === 'id'"># {{ item.value }}</span>
+        <img *ngIf="item.header === 'imageURL'" [src]="item.value" height="96" width="96" />
+        <span *ngIf="item.header === 'name'">{{ item.value }}</span>
+        <span *ngIf="item.header === 'types'">{{ item.value }}</span>
+    </ng-template>
+</app-table>
 
 <app-table-paginator
     [disabled]="isLoading"
