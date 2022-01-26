@@ -5,12 +5,11 @@
 }
 
 #app-table td {
-    padding: 8px;
+    padding: 0 8px;
 }
 
 #app-table tr {
     border: 1px solid #ddd;
-    padding: 8px;
 }
 
 #app-table .tr-td:hover {

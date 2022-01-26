@@ -3,7 +3,7 @@
 <app-table [headers]="headers" [items]="pokemons">
     <ng-template let-item>
         <span *ngIf="item.header === 'id'"># {{ item.value }}</span>
-        <img *ngIf="item.header === 'imageURL'" [src]="item.value" height="96" width="96" />
+        <img *ngIf="item.header === 'imageURL'" [src]="item.value" height="90" width="90" />
         <span *ngIf="item.header === 'name'">{{ item.value }}</span>
         <span *ngIf="item.header === 'types'">{{ item.value }}</span>
     </ng-template>

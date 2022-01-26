@@ -1,9 +1,5 @@
 export default class PokemonDetailsModel {
-    dataResponse: any = null;
-
-    constructor(dataResponse: any) {
-        this.dataResponse = dataResponse;
-    }
+    constructor(public dataResponse: any) {}
 
     getDescription() {
         return this.dataResponse.flavor_text_entries

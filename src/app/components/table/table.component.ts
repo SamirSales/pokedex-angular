@@ -6,11 +6,8 @@ import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/co
     styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-    @Input() headers: any = [
-        //text, input
-    ];
-
-    @Input() items: any = [];
+    @Input() headers: { text: string; input: any }[] = [];
+    @Input() items = [];
 
     @ContentChild(TemplateRef) templateRef: any;
 
@@ -19,6 +16,6 @@ export class TableComponent implements OnInit {
     ngOnInit(): void {}
 
     getInputs(): any {
-        return this.headers.map((header: any) => header.input);
+        return this.headers.map((header: { input: any }) => header.input);
     }
 }

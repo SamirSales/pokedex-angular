@@ -1,9 +1,5 @@
 export default class PokemonEvolutionChainModel {
-    dataResponse: any = null;
-
-    constructor(dataResponse: any) {
-        this.dataResponse = dataResponse;
-    }
+    constructor(public dataResponse: any) {}
 
     getTreeData() {
         return [getTreeDataRecursively(this.dataResponse.chain)];

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonHttpClientService } from '../../services/pokemon-http-client.service';
+import Config from '../../config';
 
 @Component({
     selector: 'app-pokemon-table',
@@ -9,7 +10,7 @@ import { PokemonHttpClientService } from '../../services/pokemon-http-client.ser
 export class PokemonTableComponent implements OnInit {
     @Input() searchText: string = '';
 
-    pokemonsPerPage: number = 10;
+    pokemonsPerPage: number = 5;
     pageQuantity: number = 10;
     selectedIndex: number = 1;
     isLoading: boolean = false;
@@ -37,9 +38,9 @@ export class PokemonTableComponent implements OnInit {
     refreshData() {
         this.isLoading = true;
         this.PokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
-            next: (pokemonModels) => {
-                console.log('data', pokemonModels);
-                this.pokemons = pokemonModels;
+            next: (pokemons) => {
+                console.log('data', pokemons);
+                this.pokemons = pokemons;
                 this.isLoading = false;
             },
             error: (error) => {
@@ -50,6 +51,6 @@ export class PokemonTableComponent implements OnInit {
     }
 
     getPageQuantity() {
-        return 150 / this.pokemonsPerPage;
+        return Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage;
     }
 }

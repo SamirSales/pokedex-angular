@@ -4,16 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import PokemonModel from '../model/PokemonModel';
-import PokemonDetailsModel from '../model/PokemonDetailsModel';
-import PokemonEvolutionChainModel from '../model/PokemonEvolutionChainModel';
+import PokemonModel from '../model/pokemon.model';
+import PokemonDetailsModel from '../model/pokemon-details.model';
+import PokemonEvolutionChainModel from '../model/pokemon-evolution-chain.model';
+import Config from '../config';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PokemonHttpClientService {
     BASE_URL = 'https://pokeapi.co/api/v2';
-    MAX_NUMBER_OF_POKEMONS = 150;
 
     constructor(public httpClient: HttpClient) {}
 
@@ -22,7 +22,7 @@ export class PokemonHttpClientService {
         const promises = [];
 
         for (let i = 0; i < pageSize; i++) {
-            if (initialPokemonNumber + i <= this.MAX_NUMBER_OF_POKEMONS) {
+            if (initialPokemonNumber + i <= Config.MAX_NUMBER_OF_POKEMONS) {
                 const promise = this.getByNameOrId(initialPokemonNumber + i);
                 promises.push(promise);
             }
