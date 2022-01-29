@@ -13,6 +13,7 @@ import { TableComponent } from './components/table/table.component';
 import { SearchTextFieldComponent } from './components/search-text-field/search-text-field.component';
 import { TablePaginatorComponent } from './components/table-paginator/table-paginator.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { PokemonTypeLabelsComponent } from './components/pokemon-type-labels/pokemon-type-labels.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { LoaderComponent } from './components/loader/loader.component';
         TableComponent,
         SearchTextFieldComponent,
         TablePaginatorComponent,
-        LoaderComponent
+        LoaderComponent,
+        PokemonTypeLabelsComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [],

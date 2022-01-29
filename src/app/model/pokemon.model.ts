@@ -13,7 +13,9 @@ export default class PokemonModel {
         this.id = dataResponse.id;
         this.imageURL = dataResponse.sprites.front_default;
         this.name = dataResponse.name.charAt(0).toUpperCase() + dataResponse.name.slice(1);
-        this.types = dataResponse.types;
+        this.types = dataResponse.types.map((type: any) => {
+            return { name: type.type.name };
+        });
 
         this.heightInMeters = dataResponse.height / 10;
         this.weightInKg = dataResponse.weight / 10;
