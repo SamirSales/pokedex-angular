@@ -1,6 +1,24 @@
 <div class="modal" [style]="getDialogStyle()" (click)="close()">
     <div class="modal-content" click-stop-propagation>
         <span class="close" (click)="close()">&times;</span>
-        <p>Some text in the Modal..</p>
+        <h1>
+            <span style="color: gray">#{{ pokemon.id }}</span> {{ pokemon.name }}
+        </h1>
+
+        <img [src]="pokemon.imageURL" width="120" height="120" />
+
+        <ul>
+            <li><b>Height: </b>{{ pokemon.heightInMeters }} m</li>
+            <li><b>Weight: </b>{{ pokemon.weightInKg }} kg</li>
+            <li><b>Base experience: </b>{{ pokemon.baseExperience }}</li>
+
+            <li *ngFor="let point of pokemon.points">
+                <b>{{ point.name.charAt(0).toUpperCase() + point.name.slice(1) }}: </b>{{ point.value }}
+            </li>
+        </ul>
+
+        <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
+
+        <p><b>Games: </b>{{ pokemon.getGamesAsText() }}</p>
     </div>
 </div>

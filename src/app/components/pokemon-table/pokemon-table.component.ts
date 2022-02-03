@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonHttpClientService } from '../../services/pokemon-http-client.service';
+import { PokemonDetailDialogService } from '../../services/pokemon-detail-dialog.service';
 import Config from '../../config';
 
 @Component({
@@ -24,7 +25,10 @@ export class PokemonTableComponent implements OnInit {
 
     pokemons = [];
 
-    constructor(public PokemonHttpClientService: PokemonHttpClientService) {}
+    constructor(
+        public PokemonHttpClientService: PokemonHttpClientService,
+        private pokemonDetailDialogService: PokemonDetailDialogService
+    ) {}
 
     ngOnInit(): void {
         this.refreshData();
@@ -39,7 +43,6 @@ export class PokemonTableComponent implements OnInit {
         this.isLoading = true;
         this.PokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
             next: (pokemons) => {
-                console.log('data', pokemons);
                 this.pokemons = pokemons;
                 this.isLoading = false;
             },
@@ -52,5 +55,10 @@ export class PokemonTableComponent implements OnInit {
 
     getPageQuantity() {
         return Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage;
+    }
+
+    onClickItem(pokemon: any) {
+        this.pokemonDetailDialogService.setPokemon(pokemon);
+        this.pokemonDetailDialogService.open();
     }
 }

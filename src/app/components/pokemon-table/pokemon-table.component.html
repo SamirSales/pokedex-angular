@@ -1,6 +1,6 @@
 <p *ngIf="searchText.trim() != ''">Searching {{ searchText }}...</p>
 
-<app-table [headers]="headers" [items]="pokemons">
+<app-table [headers]="headers" [items]="pokemons" (clickItem)="onClickItem($event)">
     <ng-template let-item>
         <div [ngSwitch]="item.header">
             <span *ngSwitchCase="'id'"># {{ item.value }}</span>

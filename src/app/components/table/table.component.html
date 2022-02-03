@@ -3,8 +3,8 @@
         <th *ngFor="let header of headers">{{ header.text }}</th>
     </tr>
 
-    <tr class="tr-td" *ngFor="let item of items">
-        <td *ngFor="let input of getInputs(); let i = index">
+    <tr class="tr-td" *ngFor="let item of items; let i = index" (click)="onClickItem(i)">
+        <td *ngFor="let input of getInputs()">
             <ng-template
                 [ngTemplateOutlet]="templateRef"
                 [ngTemplateOutletContext]="{ $implicit: { header: input, value: item[input] } }"

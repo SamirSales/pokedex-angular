@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-table',
@@ -9,6 +9,8 @@ export class TableComponent implements OnInit {
     @Input() headers: { text: string; input: any }[] = [];
     @Input() items = [];
 
+    @Output('clickItem') clickItemEventEmitter: EventEmitter<any> = new EventEmitter();
+
     @ContentChild(TemplateRef) templateRef: any;
 
     constructor() {}
@@ -17,5 +19,10 @@ export class TableComponent implements OnInit {
 
     getInputs(): any {
         return this.headers.map((header: { input: any }) => header.input);
+    }
+
+    onClickItem(index: number) {
+        const item = this.items[index];
+        this.clickItemEventEmitter.emit(item);
     }
 }
