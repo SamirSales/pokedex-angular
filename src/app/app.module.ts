@@ -16,6 +16,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { PokemonTypeLabelsComponent } from './components/pokemon-type-labels/pokemon-type-labels.component';
 
 import { PokemonHttpClientService } from './services/pokemon-http-client.service';
+import { PokemonDetailDialogComponent } from './components/pokemon-detail-dialog/pokemon-detail-dialog.component';
+import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,9 @@ import { PokemonHttpClientService } from './services/pokemon-http-client.service
         SearchTextFieldComponent,
         TablePaginatorComponent,
         LoaderComponent,
-        PokemonTypeLabelsComponent
+        PokemonTypeLabelsComponent,
+        PokemonDetailDialogComponent,
+        ClickStopPropagationDirective
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [PokemonHttpClientService],
