@@ -6,7 +6,6 @@
     <tr class="tr-td" *ngFor="let item of items">
         <td *ngFor="let input of getInputs(); let i = index">
             <ng-template
-                [select]="'slot-' + headers[i]"
                 [ngTemplateOutlet]="templateRef"
                 [ngTemplateOutletContext]="{ $implicit: { header: input, value: item[input] } }"
             ></ng-template>

@@ -9,9 +9,7 @@ import PokemonDetailsModel from '../model/pokemon-details.model';
 import PokemonEvolutionChainModel from '../model/pokemon-evolution-chain.model';
 import Config from '../config';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class PokemonHttpClientService {
     BASE_URL = 'https://pokeapi.co/api/v2';
 
@@ -31,7 +29,7 @@ export class PokemonHttpClientService {
         return forkJoin(promises);
     }
 
-    getByNameOrId(nameOrId: any): Observable<any> {
+    getByNameOrId(nameOrId: any): Observable<PokemonModel> {
         return this.httpClient.get(this.BASE_URL + '/pokemon/' + nameOrId).pipe(
             map((data) => {
                 return new PokemonModel(data);
@@ -39,7 +37,7 @@ export class PokemonHttpClientService {
         );
     }
 
-    getMoreInfoById(pokemonId: any): Observable<any> {
+    getMoreInfoById(pokemonId: any): Observable<PokemonDetailsModel> {
         return this.httpClient.get(this.BASE_URL + '/pokemon-species/' + pokemonId).pipe(
             map((data) => {
                 return new PokemonDetailsModel(data);

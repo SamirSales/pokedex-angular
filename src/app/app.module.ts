@@ -15,6 +15,8 @@ import { TablePaginatorComponent } from './components/table-paginator/table-pagi
 import { LoaderComponent } from './components/loader/loader.component';
 import { PokemonTypeLabelsComponent } from './components/pokemon-type-labels/pokemon-type-labels.component';
 
+import { PokemonHttpClientService } from './services/pokemon-http-client.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -30,7 +32,7 @@ import { PokemonTypeLabelsComponent } from './components/pokemon-type-labels/pok
         PokemonTypeLabelsComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-    providers: [],
+    providers: [PokemonHttpClientService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
