@@ -1,11 +1,12 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import PokemonModel from '../model/pokemon.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PokemonDetailDialogService {
-    selectedPokemonChanged = new EventEmitter<PokemonModel>();
+    selectedPokemonChanged = new Subject<PokemonModel>();
 
     private isDialogVisible: boolean = false;
     private pokemon = new PokemonModel(null);
@@ -26,6 +27,6 @@ export class PokemonDetailDialogService {
 
     setPokemon(pokemon: PokemonModel) {
         this.pokemon = pokemon;
-        this.selectedPokemonChanged.emit(this.pokemon);
+        this.selectedPokemonChanged.next(this.pokemon);
     }
 }
