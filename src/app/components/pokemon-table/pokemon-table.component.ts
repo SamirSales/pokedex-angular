@@ -54,7 +54,7 @@ export class PokemonTableComponent implements OnInit {
     }
 
     getPageQuantity() {
-        return Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage;
+        return Math.ceil(Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage);
     }
 
     onClickItem(pokemon: any) {
