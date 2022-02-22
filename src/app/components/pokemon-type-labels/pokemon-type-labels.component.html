@@ -1,1 +1,7 @@
-<span *ngFor="let type of types" [style.background-color]="getColorByType(type)">{{ type.name }}</span>
+<span
+    *ngFor="let type of types"
+    [style.background-color]="getBackgroundColorByType(type)"
+    [style.color]="getTextColorByType(type)"
+    [style.fontWeight]="500"
+    >{{ type.name }}</span
+>

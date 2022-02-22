@@ -5,14 +5,14 @@ import { PokemonInterface } from '../../model/pokemon.model';
 import Config from '../../config';
 
 @Component({
-    selector: 'app-pokemon-table',
-    templateUrl: './pokemon-table.component.html',
-    styleUrls: ['./pokemon-table.component.css']
+    selector: 'app-pokemon-cards',
+    templateUrl: './pokemon-cards.component.html',
+    styleUrls: ['./pokemon-cards.component.css']
 })
-export class PokemonTableComponent implements OnInit {
+export class PokemonCardsComponent implements OnInit {
     @Input() searchText: string = '';
 
-    pokemonsPerPage: number = 5;
+    pokemonsPerPage: number = 12;
     pageQuantity: number = 10;
     selectedIndex: number = 1;
     isLoading: boolean = false;

@@ -1,0 +1,26 @@
+<p *ngIf="searchText.trim() != ''">Searching {{ searchText }}...</p>
+
+<div class="container">
+    <div class="pokemon-card" *ngFor="let pokemon of pokemons" (click)="onClickItem(pokemon)">
+        <table>
+            <tr>
+                <td><img [src]="pokemon.imageURL" /></td>
+                <td>
+                    <p class="card-title">
+                        <span style="color: #c0c0c0">#{{ pokemon.id }}</span> {{ pokemon.name }}
+                    </p>
+                    <app-pokemon-type-labels [types]="pokemon.types" [outlined]="true"></app-pokemon-type-labels>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<app-table-paginator
+    [disabled]="isLoading"
+    [pageQuantity]="getPageQuantity()"
+    [selectedIndex]="selectedIndex"
+    (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
+></app-table-paginator>
+
+<app-loader *ngIf="isLoading"></app-loader>

@@ -15,7 +15,7 @@ export class PokemonHttpClientService {
 
     constructor(public httpClient: HttpClient) {}
 
-    getPageByNumberAndSize(pageNumber: number, pageSize: number): Observable<any> {
+    getPageByNumberAndSize(pageNumber: number, pageSize: number): Observable<PokemonInterface[]> {
         const initialPokemonNumber = pageSize * (pageNumber - 1) + 1;
         const promises = [];
 

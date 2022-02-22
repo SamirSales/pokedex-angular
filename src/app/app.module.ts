@@ -18,6 +18,7 @@ import { PokemonTypeLabelsComponent } from './components/pokemon-type-labels/pok
 import { PokemonHttpClientService } from './services/pokemon-http-client.service';
 import { PokemonDetailDialogComponent } from './components/pokemon-detail-dialog/pokemon-detail-dialog.component';
 import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
+import { PokemonCardsComponent } from './components/pokemon-cards/pokemon-cards.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { ClickStopPropagationDirective } from './directives/click-stop-propagati
         LoaderComponent,
         PokemonTypeLabelsComponent,
         PokemonDetailDialogComponent,
-        ClickStopPropagationDirective
+        ClickStopPropagationDirective,
+        PokemonCardsComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [PokemonHttpClientService],

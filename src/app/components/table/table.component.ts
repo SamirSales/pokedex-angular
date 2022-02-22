@@ -7,7 +7,7 @@ import { Component, OnInit, Input, ContentChild, TemplateRef, Output, EventEmitt
 })
 export class TableComponent implements OnInit {
     @Input() headers: { text: string; input: any }[] = [];
-    @Input() items = [];
+    @Input() items: any[] = [];
 
     @Output('clickItem') clickItemEventEmitter: EventEmitter<any> = new EventEmitter();
 

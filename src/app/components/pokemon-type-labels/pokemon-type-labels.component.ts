@@ -7,10 +7,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PokemonTypeLabelsComponent implements OnInit {
     @Input() types: { name: string }[] = [];
+    @Input() outlined: boolean = false;
 
     constructor() {}
 
     ngOnInit(): void {}
+
+    getBackgroundColorByType(type: { name: string }) {
+        if (!this.outlined) {
+            return this.getColorByType(type);
+        }
+        return 'transparent';
+    }
+
+    getTextColorByType(type: { name: string }) {
+        if (this.outlined) {
+            return this.getColorByType(type);
+        }
+        return 'white';
+    }
 
     getColorByType(type: { name: string }) {
         switch (type.name) {
