@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonDetailDialogService } from '../../services/pokemon-detail-dialog.service';
-import PokemonModel from '../../model/pokemon.model';
+import { PokemonInterface, PokemonModelMapper } from '../../model/pokemon.model';
 
 @Component({
     selector: 'app-pokemon-detail-dialog',
@@ -9,7 +9,7 @@ import PokemonModel from '../../model/pokemon.model';
 })
 export class PokemonDetailDialogComponent implements OnInit {
     visible: boolean = false;
-    pokemon: PokemonModel = new PokemonModel(null);
+    pokemon: PokemonInterface = PokemonModelMapper.getEmpty();
 
     constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
 

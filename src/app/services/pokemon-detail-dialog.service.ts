@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import PokemonModel from '../model/pokemon.model';
+import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PokemonDetailDialogService {
-    selectedPokemonChanged = new Subject<PokemonModel>();
+    selectedPokemonChanged = new Subject<PokemonInterface>();
 
     private isDialogVisible: boolean = false;
-    private pokemon = new PokemonModel(null);
+    private pokemon = PokemonModelMapper.getEmpty();
 
     constructor() {}
 
@@ -25,7 +25,7 @@ export class PokemonDetailDialogService {
         this.isDialogVisible = true;
     }
 
-    setPokemon(pokemon: PokemonModel) {
+    setPokemon(pokemon: PokemonInterface) {
         this.pokemon = pokemon;
         this.selectedPokemonChanged.next(this.pokemon);
     }

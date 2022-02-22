@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import PokemonModel from '../model/pokemon.model';
+import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
 import PokemonDetailsModel from '../model/pokemon-details.model';
 import PokemonEvolutionChainModel from '../model/pokemon-evolution-chain.model';
 import Config from '../config';
@@ -29,10 +29,10 @@ export class PokemonHttpClientService {
         return forkJoin(promises);
     }
 
-    getByNameOrId(nameOrId: any): Observable<PokemonModel> {
+    getByNameOrId(nameOrId: any): Observable<PokemonInterface> {
         return this.httpClient.get(this.BASE_URL + '/pokemon/' + nameOrId).pipe(
             map((data) => {
-                return new PokemonModel(data);
+                return PokemonModelMapper.getByDataResponse(data);
             })
         );
     }

@@ -19,6 +19,6 @@
 
         <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
 
-        <p><b>Games: </b>{{ pokemon.getGamesAsText() }}</p>
+        <p><b>Games: </b>{{ pokemon.gameNames.join(', ') }}</p>
     </div>
 </div>
