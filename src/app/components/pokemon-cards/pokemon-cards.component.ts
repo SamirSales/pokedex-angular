@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PokemonHttpClientService } from '../../services/pokemon-http-client.service';
 import { PokemonDetailDialogService } from '../../services/pokemon-detail-dialog.service';
 import { PokemonInterface } from '../../model/pokemon.model';
+import { HttpErrorService } from '../../services/http-error.service';
 import Config from '../../config';
 
 @Component({
@@ -28,7 +29,8 @@ export class PokemonCardsComponent implements OnInit {
 
     constructor(
         public PokemonHttpClientService: PokemonHttpClientService,
-        private pokemonDetailDialogService: PokemonDetailDialogService
+        private pokemonDetailDialogService: PokemonDetailDialogService,
+        private httpErrorService: HttpErrorService
     ) {}
 
     ngOnInit(): void {
@@ -48,7 +50,7 @@ export class PokemonCardsComponent implements OnInit {
                 this.isLoading = false;
             },
             error: (error) => {
-                console.log('error!', error);
+                this.httpErrorService.submit(error);
                 this.isLoading = false;
             }
         });

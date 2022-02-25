@@ -11,9 +11,9 @@ import Config from '../config';
 
 @Injectable()
 export class PokemonHttpClientService {
-    BASE_URL = 'https://pokeapi.co/api/v2';
+    private BASE_URL = 'https://pokeapi.co/api/v2';
 
-    constructor(public httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient) {}
 
     getPageByNumberAndSize(pageNumber: number, pageSize: number): Observable<PokemonInterface[]> {
         const initialPokemonNumber = pageSize * (pageNumber - 1) + 1;
