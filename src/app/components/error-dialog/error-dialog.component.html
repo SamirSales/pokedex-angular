@@ -1,0 +1,6 @@
+<app-dialog [visible]="visible" (close)="close.emit()">
+    <div *ngIf="error != null">
+        <h1>{{ error.error }}</h1>
+        <p>{{ error.message }}</p>
+    </div>
+</app-dialog>

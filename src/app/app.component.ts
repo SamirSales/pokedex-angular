@@ -11,9 +11,13 @@ export class AppComponent implements OnDestroy {
     title = 'pokedex-angular';
     private errorSubscrition: Subscription;
 
+    shouldShowErrorDialog: boolean = false;
+    httpErrorResponse = null;
+
     constructor(private httpErrorService: HttpErrorService) {
         this.errorSubscrition = this.httpErrorService.getSubject().subscribe((error) => {
-            console.log('error', error);
+            this.shouldShowErrorDialog = true;
+            this.httpErrorResponse = error;
         });
     }
 

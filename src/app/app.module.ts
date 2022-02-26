@@ -20,6 +20,7 @@ import { PokemonDetailDialogComponent } from './components/pokemon-detail-dialog
 import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
 import { PokemonCardsComponent } from './components/pokemon-cards/pokemon-cards.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
         PokemonDetailDialogComponent,
         ClickStopPropagationDirective,
         PokemonCardsComponent,
-        DialogComponent
+        DialogComponent,
+        ErrorDialogComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [PokemonHttpClientService],
