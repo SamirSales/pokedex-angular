@@ -1,0 +1,7 @@
+<div class="modal" [style]="getDialogStyle()" (click)="close()">
+    <div class="modal-content" click-stop-propagation>
+        <span class="close" (click)="close()">&times;</span>
+
+        <ng-content></ng-content>
+    </div>
+</div>

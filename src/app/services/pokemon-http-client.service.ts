@@ -34,6 +34,9 @@ export class PokemonHttpClientService {
             map((data) => {
                 return PokemonModelMapper.getByDataResponse(data);
             })
+            // catchError(error => {
+            //     return throwError(error)
+            // })
         );
     }
 

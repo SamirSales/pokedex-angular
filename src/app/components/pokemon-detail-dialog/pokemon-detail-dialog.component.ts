@@ -8,7 +8,6 @@ import { PokemonInterface, PokemonModelMapper } from '../../model/pokemon.model'
     styleUrls: ['./pokemon-detail-dialog.component.css']
 })
 export class PokemonDetailDialogComponent implements OnInit {
-    visible: boolean = false;
     pokemon: PokemonInterface = PokemonModelMapper.getEmpty();
 
     constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
@@ -21,10 +20,16 @@ export class PokemonDetailDialogComponent implements OnInit {
 
     close() {
         this.pokemonDetailDialogService.close();
-        this.visible = false;
     }
 
     getDialogStyle() {
-        return 'display: ' + (this.pokemonDetailDialogService.isVisible() ? 'block' : 'none');
+        return 'display: ' + (this.isVisible() ? 'block' : 'none');
+    }
+
+    isVisible() {
+        if (this.pokemonDetailDialogService != undefined || this.pokemonDetailDialogService != null) {
+            return this.pokemonDetailDialogService.isVisible();
+        }
+        return false;
     }
 }

@@ -1,24 +1,21 @@
-<div class="modal" [style]="getDialogStyle()" (click)="close()">
-    <div class="modal-content" click-stop-propagation>
-        <span class="close" (click)="close()">&times;</span>
-        <h1>
-            <span style="color: gray">#{{ pokemon.id }}</span> {{ pokemon.name }}
-        </h1>
+<app-dialog [visible]="isVisible()" (close)="close()">
+    <h1>
+        <span style="color: gray">#{{ pokemon.id }}</span> {{ pokemon.name }}
+    </h1>
 
-        <img [src]="pokemon.imageURL" width="120" height="120" />
+    <img [src]="pokemon.imageURL" width="120" height="120" />
 
-        <ul>
-            <li><b>Height: </b>{{ pokemon.heightInMeters }} m</li>
-            <li><b>Weight: </b>{{ pokemon.weightInKg }} kg</li>
-            <li><b>Base experience: </b>{{ pokemon.baseExperience }}</li>
+    <ul>
+        <li><b>Height: </b>{{ pokemon.heightInMeters }} m</li>
+        <li><b>Weight: </b>{{ pokemon.weightInKg }} kg</li>
+        <li><b>Base experience: </b>{{ pokemon.baseExperience }}</li>
 
-            <li *ngFor="let point of pokemon.points">
-                <b>{{ point.name.charAt(0).toUpperCase() + point.name.slice(1) }}: </b>{{ point.value }}
-            </li>
-        </ul>
+        <li *ngFor="let point of pokemon.points">
+            <b>{{ point.name.charAt(0).toUpperCase() + point.name.slice(1) }}: </b>{{ point.value }}
+        </li>
+    </ul>
 
-        <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
+    <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
 
-        <p><b>Games: </b>{{ pokemon.gameNames.join(', ') }}</p>
-    </div>
-</div>
+    <p><b>Games: </b>{{ pokemon.gameNames.join(', ') }}</p>
+</app-dialog>
