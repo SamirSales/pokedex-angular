@@ -31,7 +31,7 @@ export class PokemonHttpClientService {
     }
 
     getByNameOrId(nameOrId: any): Observable<PokemonInterface> {
-        return this.httpClient.get(this.BASE_URL + '/pokemon8/' + nameOrId).pipe(
+        return this.httpClient.get(this.BASE_URL + '/pokemon/' + nameOrId).pipe(
             map((data) => {
                 return PokemonModelMapper.getByDataResponse(data);
             }),
