@@ -46,6 +46,10 @@ export class PokemonHttpClientService {
         return this.httpClient.get(this.BASE_URL + '/pokemon-species/' + pokemonId).pipe(
             map((data) => {
                 return new PokemonDetailsModel(data);
+            }),
+            catchError((error) => {
+                this.httpErrorService.submit(error);
+                return throwError(() => error);
             })
         );
     }
