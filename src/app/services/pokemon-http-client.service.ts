@@ -58,6 +58,10 @@ export class PokemonHttpClientService {
         return this.httpClient.get(url).pipe(
             map((data) => {
                 return new PokemonEvolutionChainModel(data);
+            }),
+            catchError((error) => {
+                this.httpErrorService.submit(error);
+                return throwError(() => error);
             })
         );
     }
