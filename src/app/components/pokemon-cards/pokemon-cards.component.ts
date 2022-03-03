@@ -49,8 +49,7 @@ export class PokemonCardsComponent implements OnInit {
                 this.pokemons = pokemons;
                 this.isLoading = false;
             },
-            error: (error) => {
-                this.httpErrorService.submit(error);
+            error: () => {
                 this.isLoading = false;
             }
         });
