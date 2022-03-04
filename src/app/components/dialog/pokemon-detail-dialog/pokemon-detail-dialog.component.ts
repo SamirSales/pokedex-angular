@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonDetailDialogService } from '../../services/pokemon-detail-dialog.service';
-import { PokemonInterface, PokemonModelMapper } from '../../model/pokemon.model';
+import { PokemonDetailDialogService } from '../../../services/pokemon-detail-dialog.service';
+import { PokemonInterface, PokemonModelMapper } from '../../../model/pokemon.model';
 
 @Component({
     selector: 'app-pokemon-detail-dialog',

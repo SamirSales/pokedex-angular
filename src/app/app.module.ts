@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { PokemonTableComponent } from './components/pokemon-table/pokemon-table.component';
+import { PokemonTableComponent } from './components/table/pokemon-table/pokemon-table.component';
 import { PokemonsViewComponent } from './views/pokemons-view/pokemons-view.component';
 import { MoreInfoViewComponent } from './views/more-info-view/more-info-view.component';
 import { PageNotFoundViewComponent } from './views/page-not-found-view/page-not-found-view.component';
@@ -16,11 +16,11 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { PokemonTypeLabelsComponent } from './components/pokemon-type-labels/pokemon-type-labels.component';
 
 import { PokemonHttpClientService } from './services/pokemon-http-client.service';
-import { PokemonDetailDialogComponent } from './components/pokemon-detail-dialog/pokemon-detail-dialog.component';
+import { PokemonDetailDialogComponent } from './components/dialog/pokemon-detail-dialog/pokemon-detail-dialog.component';
 import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
 import { PokemonCardsComponent } from './components/pokemon-cards/pokemon-cards.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { ErrorDialogComponent } from './components/dialog/error-dialog/error-dialog.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { DropdownIdiomsComponent } from './components/dropdown/dropdown-idioms/dropdown-idioms.component';
 
