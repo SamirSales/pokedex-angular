@@ -10,12 +10,18 @@
 
         <div>
             <ul>
-                <li><b>Height: </b>{{ pokemon.heightInMeters }} m</li>
-                <li><b>Weight: </b>{{ pokemon.weightInKg }} kg</li>
-                <li><b>Base experience: </b>{{ pokemon.baseExperience }}</li>
+                <li>
+                    <b>{{ 'pokemonDetails.height' | translate }}: </b>{{ pokemon.heightInMeters }} m
+                </li>
+                <li>
+                    <b>{{ 'pokemonDetails.weight' | translate }}: </b>{{ pokemon.weightInKg }} kg
+                </li>
+                <li>
+                    <b>{{ 'pokemonDetails.baseExperience' | translate }}: </b>{{ pokemon.baseExperience }}
+                </li>
 
                 <li *ngFor="let point of pokemon.points">
-                    <b>{{ point.name.charAt(0).toUpperCase() + point.name.slice(1) }}: </b>{{ point.value }}
+                    <b>{{ 'pokemonDetails.' + point.name | translate }}: </b>{{ point.value }}
                 </li>
             </ul>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-search-text-field',
@@ -9,11 +10,15 @@ export class SearchTextFieldComponent implements OnInit {
     @Input() ngModel: string = '';
     @Output() ngModelChange = new EventEmitter<string>();
 
-    constructor() {}
+    constructor(private translate: TranslateService) {}
 
     ngOnInit(): void {}
 
     onChangeValue(value: string) {
         this.ngModelChange.emit(value);
+    }
+
+    getPlaceholderText() {
+        return this.translate.instant('general.search') + '...';
     }
 }

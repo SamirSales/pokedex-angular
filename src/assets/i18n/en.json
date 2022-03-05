@@ -1,0 +1,18 @@
+{
+    "general": {
+        "search": "Search",
+        "close": "Close"
+    },
+
+    "pokemonDetails": {
+        "height": "Height",
+        "weight": "Weight",
+        "baseExperience": "Base experience",
+        "hp": "HP",
+        "attack": "Attack",
+        "defense": "Defence",
+        "special-attack": "Special attack",
+        "special-defense": "Special defense",
+        "speed": "Speed"
+    }
+}

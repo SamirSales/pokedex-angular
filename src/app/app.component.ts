@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpErrorService } from './services/http-error.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
@@ -14,11 +15,13 @@ export class AppComponent implements OnDestroy {
     shouldShowErrorDialog: boolean = false;
     httpErrorResponse = null;
 
-    constructor(private httpErrorService: HttpErrorService) {
+    constructor(private httpErrorService: HttpErrorService, private translate: TranslateService) {
         this.errorSubscrition = this.httpErrorService.getSubject().subscribe((error) => {
             this.shouldShowErrorDialog = true;
             this.httpErrorResponse = error;
         });
+
+        this.translate.setDefaultLang('en');
     }
 
     ngOnDestroy(): void {
