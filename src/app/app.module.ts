@@ -23,6 +23,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { ErrorDialogComponent } from './components/dialog/error-dialog/error-dialog.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { DropdownIdiomsComponent } from './components/dropdown/dropdown-idioms/dropdown-idioms.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { DropdownIdiomsComponent } from './components/dropdown/dropdown-idioms/d
         DialogComponent,
         ErrorDialogComponent,
         DropdownComponent,
-        DropdownIdiomsComponent
+        DropdownIdiomsComponent,
+        ButtonComponent
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [PokemonHttpClientService],

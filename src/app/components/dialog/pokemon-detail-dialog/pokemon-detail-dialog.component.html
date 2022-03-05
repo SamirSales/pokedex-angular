@@ -3,17 +3,23 @@
         <span style="color: gray">#{{ pokemon.id }}</span> {{ pokemon.name }}
     </h1>
 
-    <img [src]="pokemon.imageURL" width="120" height="120" />
+    <div class="grid-container">
+        <div style="text-align: center; padding: auto">
+            <img [src]="pokemon.imageURL" width="200" height="200" />
+        </div>
 
-    <ul>
-        <li><b>Height: </b>{{ pokemon.heightInMeters }} m</li>
-        <li><b>Weight: </b>{{ pokemon.weightInKg }} kg</li>
-        <li><b>Base experience: </b>{{ pokemon.baseExperience }}</li>
+        <div>
+            <ul>
+                <li><b>Height: </b>{{ pokemon.heightInMeters }} m</li>
+                <li><b>Weight: </b>{{ pokemon.weightInKg }} kg</li>
+                <li><b>Base experience: </b>{{ pokemon.baseExperience }}</li>
 
-        <li *ngFor="let point of pokemon.points">
-            <b>{{ point.name.charAt(0).toUpperCase() + point.name.slice(1) }}: </b>{{ point.value }}
-        </li>
-    </ul>
+                <li *ngFor="let point of pokemon.points">
+                    <b>{{ point.name.charAt(0).toUpperCase() + point.name.slice(1) }}: </b>{{ point.value }}
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
 

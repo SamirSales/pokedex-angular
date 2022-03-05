@@ -1,0 +1,13 @@
+.app-button {
+    padding: 6px 10px;
+    background-color: #1976d2;
+    color: white;
+    border: solid 1px #1976d2;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.app-button:active {
+    background-color: #4e90d1;
+}

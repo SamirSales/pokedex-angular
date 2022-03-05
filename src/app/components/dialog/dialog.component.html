@@ -1,7 +1,9 @@
 <div class="modal" [style]="getDialogStyle()" (click)="close()">
     <div class="modal-content" click-stop-propagation>
-        <span class="close" (click)="close()">&times;</span>
-
         <ng-content></ng-content>
+
+        <div style="text-align: right">
+            <app-button (click)="close()">Close</app-button>
+        </div>
     </div>
 </div>
