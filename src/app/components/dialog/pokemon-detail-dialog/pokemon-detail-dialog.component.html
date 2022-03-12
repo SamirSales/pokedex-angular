@@ -29,5 +29,7 @@
 
     <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
 
-    <p><b>Games: </b>{{ pokemon.gameNames.join(', ') }}</p>
+    <p>
+        <b>{{ 'pokemonDetails.games' | translate }}: </b>{{ pokemon.gameNames.join(', ') }}
+    </p>
 </app-dialog>

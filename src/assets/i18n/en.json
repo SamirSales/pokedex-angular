@@ -1,18 +1,52 @@
 {
+    "aboutPage": {
+        "linkMessage": "Code on GitHub",
+        "message": "This PokeDéx is an application demo using VueJS 2 created by Samir Sales.",
+        "title": "Hello!"
+    },
+
     "general": {
-        "search": "Search",
-        "close": "Close"
+        "close": "Close",
+        "search": "Search"
     },
 
     "pokemonDetails": {
-        "height": "Height",
-        "weight": "Weight",
-        "baseExperience": "Base experience",
-        "hp": "HP",
         "attack": "Attack",
+        "baseExperience": "Base experience",
+        "chainOfEvolution": "Chain of evolution",
         "defense": "Defence",
+        "description": "Description",
+        "games": "Games",
+        "height": "Height",
+        "hp": "HP",
+        "image": "Image",
+        "name": "Name",
+        "number": "Number",
         "special-attack": "Special attack",
         "special-defense": "Special defense",
-        "speed": "Speed"
+        "speed": "Speed",
+        "type": "Type",
+        "weight": "Weight"
+    },
+
+    "pokemonType": {
+        "bug": "bug",
+        "dark": "dark",
+        "dragon": "dragon",
+        "electric": "electric",
+        "fairy": "fairy",
+        "fighting": "fighting",
+        "fire": "fire",
+        "flying": "flying",
+        "ghost": "ghost",
+        "grass": "grass",
+        "ground": "ground",
+        "ice": "ice",
+        "normal": "normal",
+        "poison": "poison",
+        "psychic": "psychic",
+        "rock": "rock",
+        "steel": "steel",
+        "water": "water"
     }
 }
