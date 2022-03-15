@@ -1,3 +1,4 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonHttpClientService } from '../../services/pokemon-http-client.service';
 import { PokemonDetailDialogService } from '../../services/pokemon-detail-dialog.service';
@@ -8,10 +9,32 @@ import Config from '../../config';
 @Component({
     selector: 'app-pokemon-cards',
     templateUrl: './pokemon-cards.component.html',
-    styleUrls: ['./pokemon-cards.component.css']
+    styleUrls: ['./pokemon-cards.component.css'],
+
+    animations: [
+        trigger('cardState', [
+            state(
+                'visible',
+                style({
+                    transform: 'scale(1)',
+                    opacity: 1
+                })
+            ),
+            state(
+                'hide',
+                style({
+                    transform: 'scale(0)',
+                    opacity: 0
+                })
+            ),
+            transition('hide <=> visible', animate(200))
+        ])
+    ]
 })
 export class PokemonCardsComponent implements OnInit {
     @Input() searchText: string = '';
+
+    animationState: string = 'hide';
 
     pokemonsPerPage: number = 12;
     pageQuantity: number = 10;
@@ -38,16 +61,23 @@ export class PokemonCardsComponent implements OnInit {
     }
 
     onChangeSelectedPaginatorIndex(index: number) {
-        this.selectedIndex = index;
-        this.refreshData();
+        if (this.selectedIndex != index) {
+            this.animationState = 'hide';
+            this.selectedIndex = index;
+            this.refreshData();
+        }
     }
 
     refreshData() {
         this.isLoading = true;
+
         this.PokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
             next: (pokemons) => {
                 this.pokemons = pokemons;
                 this.isLoading = false;
+                setTimeout(() => {
+                    this.animationState = 'visible';
+                }, 100);
             },
             error: () => {
                 this.isLoading = false;

@@ -12,19 +12,18 @@ const ANIMATION_TIMEOUT = 120;
             state(
                 'visible',
                 style({
-                    transform: 'translateY(0)',
+                    transform: 'translateY(0) scale(1)',
                     opacity: 1
                 })
             ),
             state(
                 'hide',
                 style({
-                    transform: 'translateY(50px)',
+                    transform: 'translateY(50px) scale(0.5)',
                     opacity: 0
                 })
             ),
-            transition('visible => hide', animate(ANIMATION_TIMEOUT)),
-            transition('hide => visible', animate(ANIMATION_TIMEOUT))
+            transition('visible <=> hide', animate(ANIMATION_TIMEOUT))
         ])
     ]
 })
