@@ -1,21 +1,58 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+
+const ANIMATION_TIMEOUT = 120;
 
 @Component({
     selector: 'app-dialog',
     templateUrl: './dialog.component.html',
-    styleUrls: ['./dialog.component.css']
+    styleUrls: ['./dialog.component.css'],
+    animations: [
+        trigger('dialogState', [
+            state(
+                'visible',
+                style({
+                    transform: 'translateY(0)',
+                    opacity: 1
+                })
+            ),
+            state(
+                'hide',
+                style({
+                    transform: 'translateY(50px)',
+                    opacity: 0
+                })
+            ),
+            transition('visible => hide', animate(ANIMATION_TIMEOUT)),
+            transition('hide => visible', animate(ANIMATION_TIMEOUT))
+        ])
+    ]
 })
 export class DialogComponent implements OnInit {
-    @Input() visible: boolean = true;
+    @Input() visible: boolean = false;
     @Output('close') closeEvent = new EventEmitter();
+
+    animationState: string = 'hide';
 
     constructor() {}
 
     ngOnInit(): void {}
 
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes['visible'].currentValue) {
+            this.animationState = 'visible';
+        } else {
+            this.animationState = 'hide';
+        }
+    }
+
     close() {
-        this.visible = false;
-        this.closeEvent.emit();
+        this.animationState = 'hide';
+
+        setTimeout(() => {
+            this.visible = false;
+            this.closeEvent.emit();
+        }, ANIMATION_TIMEOUT);
     }
 
     getDialogStyle() {

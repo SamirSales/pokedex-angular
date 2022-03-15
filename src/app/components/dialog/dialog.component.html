@@ -1,5 +1,5 @@
-<div class="modal" [style]="getDialogStyle()" (click)="close()">
-    <div class="modal-content" click-stop-propagation>
+<div class="modal-backside" [style]="getDialogStyle()" (click)="close()">
+    <div class="modal-content" [@dialogState]="animationState" click-stop-propagation>
         <ng-content></ng-content>
 
         <div style="text-align: right">
