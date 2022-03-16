@@ -16,25 +16,24 @@ import Config from '../../config';
             state(
                 'visible',
                 style({
-                    transform: 'scale(1)',
+                    transform: 'translateX(0)',
                     opacity: 1
                 })
             ),
-            state(
-                'hide',
+
+            transition('void => *', [
                 style({
-                    transform: 'scale(0)',
-                    opacity: 0
-                })
-            ),
-            transition('hide <=> visible', animate(200))
+                    transform: 'translateX(-100px)',
+                    opacity: 0,
+                    width: '106px'
+                }),
+                animate(400)
+            ])
         ])
     ]
 })
 export class PokemonCardsComponent implements OnInit {
     @Input() searchText: string = '';
-
-    animationState: string = 'hide';
 
     pokemonsPerPage: number = 12;
     pageQuantity: number = 10;
@@ -62,7 +61,6 @@ export class PokemonCardsComponent implements OnInit {
 
     onChangeSelectedPaginatorIndex(index: number) {
         if (this.selectedIndex != index) {
-            this.animationState = 'hide';
             this.selectedIndex = index;
             this.refreshData();
         }
@@ -75,9 +73,6 @@ export class PokemonCardsComponent implements OnInit {
             next: (pokemons) => {
                 this.pokemons = pokemons;
                 this.isLoading = false;
-                setTimeout(() => {
-                    this.animationState = 'visible';
-                }, 100);
             },
             error: () => {
                 this.isLoading = false;
