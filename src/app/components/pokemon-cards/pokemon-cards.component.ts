@@ -16,16 +16,15 @@ import Config from '../../config';
             state(
                 'visible',
                 style({
-                    transform: 'translateX(0)',
+                    transform: 'scale(1)',
                     opacity: 1
                 })
             ),
 
             transition('void => *', [
                 style({
-                    transform: 'translateX(-100px)',
-                    opacity: 0,
-                    width: '106px'
+                    transform: 'scale(0)',
+                    opacity: 0
                 }),
                 animate(400)
             ])

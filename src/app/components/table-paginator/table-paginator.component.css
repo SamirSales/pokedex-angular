@@ -12,17 +12,20 @@
     color: black;
     border: solid 0 transparent;
     font-size: 16px;
+    cursor: pointer;
     box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
 }
 
 #table-paginator button.selected {
     background-color: #1976d2;
     color: white;
+    cursor: unset;
 }
 
 #table-paginator button.three-points {
     background-color: transparent;
     box-shadow: none !important;
+    cursor: unset;
 }
 
 .disabled-container button {

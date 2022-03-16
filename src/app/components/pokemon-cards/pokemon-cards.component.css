@@ -7,6 +7,7 @@
     overflow: hidden;
     margin: 10px 0;
     padding: 0 0 10px 0;
+    text-align: center;
 }
 
 .pokemon-card {
@@ -15,10 +16,23 @@
     width: 30%;
     margin: 4px;
     border-radius: 2%;
-    float: left;
+    display: inline-flex;
     cursor: pointer;
+    text-align: left;
 }
 
 .pokemon-card:hover {
     box-shadow: 0 6px 12px 0 rgb(99, 188, 247);
+}
+
+@media only screen and (max-width: 840px) {
+    .pokemon-card {
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 555px) {
+    .pokemon-card {
+        width: 90%;
+    }
 }
