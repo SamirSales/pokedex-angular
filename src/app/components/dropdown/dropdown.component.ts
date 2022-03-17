@@ -52,6 +52,10 @@ export class DropdownComponent implements OnInit {
         this.dropdownState = 'hide';
     }
 
+    onClick() {
+        this.dropdownState = 'visible';
+    }
+
     onMouveEnter() {
         this.dropdownState = 'visible';
     }
