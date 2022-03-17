@@ -1,13 +1,14 @@
 {
-    "aboutPage": {
+    "infoPage": {
         "linkMessage": "Code sur GitHub",
-        "message": "Ce PokeDéx est une démo d'application utilisant VueJS 2 créée par Samir Sales.",
+        "message": "Ce PokeDéx est une démo d'application utilisant Angular créée par Samir Sales.",
         "title": "Bonjour!"
     },
 
     "general": {
         "search": "Chercher",
-        "close": "Fermer"
+        "close": "Fermer",
+        "goBack": "Retourner"
     },
 
     "pokemonDetails": {

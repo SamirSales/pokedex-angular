@@ -1,0 +1,39 @@
+.about {
+    text-align: center;
+    padding: 30px;
+}
+.about p {
+    color: gray;
+    margin: 30px;
+}
+.div-links {
+    margin: 0 auto 55px auto;
+}
+a.github {
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    border: solid 1px black;
+    padding: 10px 5px;
+    color: white;
+    background-color: black;
+}
+a.github:hover {
+    color: black;
+    background-color: white;
+}
+a.linkedin {
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    border: solid 1px #0e76a8;
+    padding: 10px 5px;
+    color: white;
+    background-color: #0e76a8;
+}
+a.linkedin:hover {
+    color: #0e76a8;
+    background-color: white;
+}
