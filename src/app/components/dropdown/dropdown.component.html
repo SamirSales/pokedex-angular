@@ -1,6 +1,6 @@
-<div class="dropdown">
+<div class="dropdown" (mouseenter)="onMouveEnter()" (mouseleave)="onMouveLeave()">
     <span>{{ getText() }}</span>
-    <div class="dropdown-content">
+    <div class="dropdown-content" [@dropdownState]="dropdownState">
         <div class="option" *ngFor="let option of options" (click)="onSelectOption(option)">{{ option }}</div>
     </div>
 </div>
