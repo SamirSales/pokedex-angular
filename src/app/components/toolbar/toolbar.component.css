@@ -28,3 +28,13 @@
 .spacer {
     flex: 1;
 }
+
+@media screen and (max-width: 290px) {
+    .angular-icon-image {
+        display: none;
+    }
+
+    .app-title {
+        padding-left: 12px;
+    }
+}

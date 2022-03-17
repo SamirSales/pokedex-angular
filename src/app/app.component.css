@@ -58,4 +58,8 @@ footer {
 }
 
 @media screen and (max-width: 575px) {
+    .content {
+        padding: 0;
+        width: calc(100%);
+    }
 }
