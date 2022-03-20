@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonDetailDialogService } from '../../../services/pokemon-detail-dialog.service';
 import { PokemonInterface, PokemonModelMapper } from '../../../model/pokemon.model';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-pokemon-detail-dialog',
@@ -11,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class PokemonDetailDialogComponent implements OnInit {
     pokemon: PokemonInterface = PokemonModelMapper.getEmpty();
 
-    constructor(private pokemonDetailDialogService: PokemonDetailDialogService, private translate: TranslateService) {}
+    constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
 
     ngOnInit(): void {
         this.pokemonDetailDialogService.selectedPokemonChanged.subscribe((pokemon) => {
@@ -21,6 +20,10 @@ export class PokemonDetailDialogComponent implements OnInit {
 
     close() {
         this.pokemonDetailDialogService.close();
+    }
+
+    getPokemonDescription() {
+        return this.pokemonDetailDialogService.getPokemonDescription();
     }
 
     getDialogStyle() {

@@ -28,6 +28,7 @@ import { ErrorDialogComponent } from './components/dialog/error-dialog/error-dia
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { DropdownIdiomsComponent } from './components/dropdown/dropdown-idioms/dropdown-idioms.component';
 import { ButtonComponent } from './components/button/button.component';
+import { PokemonEvolutionChainLayoutComponent } from './components/pokemon-evolution-chain-layout/pokemon-evolution-chain-layout.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { ButtonComponent } from './components/button/button.component';
         ErrorDialogComponent,
         DropdownComponent,
         DropdownIdiomsComponent,
-        ButtonComponent
+        ButtonComponent,
+        PokemonEvolutionChainLayoutComponent
     ],
     imports: [
         BrowserModule,

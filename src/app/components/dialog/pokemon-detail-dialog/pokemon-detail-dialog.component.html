@@ -29,6 +29,10 @@
 
     <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
 
+    <p>{{ getPokemonDescription() }}</p>
+
+    <app-pokemon-evolution-chain-layout></app-pokemon-evolution-chain-layout>
+
     <p>
         <b>{{ 'pokemonDetails.games' | translate }}: </b>{{ pokemon.gameNames.join(', ') }}
     </p>
