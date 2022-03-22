@@ -10,6 +10,6 @@ export default class PokemonDetailsModel {
     }
 
     getEvolutionChainURL() {
-        return this.dataResponse.evolution_chain.url; //.replace('https://pokeapi.co/api/v2', '');
+        return this.dataResponse.evolution_chain.url;
     }
 }

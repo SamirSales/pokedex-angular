@@ -1,0 +1,6 @@
+<div *ngFor="let evolutionOption of pokemonLinks">
+    > {{ evolutionOption.name }}
+    <div style="padding: 0 0 0 20px">
+        <span><app-pokemon-evolution-link [pokemonLinks]="evolutionOption.children"></app-pokemon-evolution-link></span>
+    </div>
+</div>

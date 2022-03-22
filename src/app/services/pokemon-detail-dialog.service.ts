@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
-import PokemonDetailsModel from '../model/pokemon-details.model';
 import { PokemonHttpClientService } from './pokemon-http-client.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -14,6 +13,7 @@ export class PokemonDetailDialogService {
     private isDialogVisible: boolean = false;
     private pokemon = PokemonModelMapper.getEmpty();
     private details: any = null;
+    private pokemonEvolutionChainModel: any = null;
 
     constructor(private pokemonHttpClientService: PokemonHttpClientService, private translate: TranslateService) {}
 
@@ -33,19 +33,26 @@ export class PokemonDetailDialogService {
         this.pokemon = pokemon;
         this.selectedPokemonChanged.next(this.pokemon);
         this.details = null;
+        this.pokemonEvolutionChainModel = null;
         this.setDetailedInformationOfPokemon();
     }
 
     getPokemonDescription() {
-        if (this.details === null) {
+        if (this.details == null) {
             return '';
         }
         return this.details.getDescriptionByLocale(this.getLocale());
     }
 
+    getEvolutionTreeData() {
+        if (this.pokemonEvolutionChainModel === null) {
+            return [];
+        }
+        return this.pokemonEvolutionChainModel.getTreeData();
+    }
+
     private setDetailedInformationOfPokemon() {
         this.pokemonHttpClientService.getMoreInfoById(this.pokemon.id).subscribe((details) => {
-            console.log('data', details);
             this.details = details;
             this.setEvolutionData();
         });
@@ -59,8 +66,10 @@ export class PokemonDetailDialogService {
     }
 
     private setEvolutionData() {
-        this.pokemonHttpClientService.getEvolutionChainByURL(this.details.getEvolutionChainURL()).subscribe((data2) => {
-            // console.log('evolution', data2);
-        });
+        this.pokemonHttpClientService
+            .getEvolutionChainByURL(this.details.getEvolutionChainURL())
+            .subscribe((pokemonEvolutionChainModel) => {
+                this.pokemonEvolutionChainModel = pokemonEvolutionChainModel;
+            });
     }
 }

@@ -29,6 +29,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { DropdownIdiomsComponent } from './components/dropdown/dropdown-idioms/dropdown-idioms.component';
 import { ButtonComponent } from './components/button/button.component';
 import { PokemonEvolutionChainLayoutComponent } from './components/pokemon-evolution-chain-layout/pokemon-evolution-chain-layout.component';
+import { PokemonEvolutionLinkComponent } from './components/pokemon-evolution-chain-layout/pokemon-evolution-link/pokemon-evolution-link.component';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import { PokemonEvolutionChainLayoutComponent } from './components/pokemon-evolu
         DropdownComponent,
         DropdownIdiomsComponent,
         ButtonComponent,
-        PokemonEvolutionChainLayoutComponent
+        PokemonEvolutionChainLayoutComponent,
+        PokemonEvolutionLinkComponent
     ],
     imports: [
         BrowserModule,

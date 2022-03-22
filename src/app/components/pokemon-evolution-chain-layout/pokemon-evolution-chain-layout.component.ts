@@ -12,5 +12,9 @@ export class PokemonEvolutionChainLayoutComponent implements OnInit {
 
     constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
 
+    getSelectedPokemonEvolutionTreeData() {
+        return this.pokemonDetailDialogService.getEvolutionTreeData();
+    }
+
     ngOnInit(): void {}
 }
