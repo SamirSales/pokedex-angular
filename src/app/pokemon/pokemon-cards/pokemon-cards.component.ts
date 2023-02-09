@@ -1,9 +1,9 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonHttpClientService } from '../../services/pokemon-http-client.service';
-import { PokemonDetailDialogService } from '../../services/pokemon-detail-dialog.service';
-import { PokemonInterface } from '../../model/pokemon.model';
-import { HttpErrorService } from '../../services/http-error.service';
+import { PokemonHttpClientService } from '../shared/pokemon-http-client.service';
+import { PokemonDetailDialogService } from '../shared/pokemon-detail-dialog.service';
+import { PokemonInterface } from '../shared/pokemon.model';
+import { HttpErrorService } from '../../shared/http-error.service';
 import Config from '../../config';
 
 @Component({

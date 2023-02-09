@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { HttpErrorService } from './services/http-error.service';
+import { HttpErrorService } from './shared/http-error.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

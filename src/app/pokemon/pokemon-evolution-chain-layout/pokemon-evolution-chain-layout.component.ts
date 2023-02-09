@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonDetailDialogService } from '../../services/pokemon-detail-dialog.service';
-import { PokemonInterface, PokemonModelMapper } from '../../model/pokemon.model';
+import { PokemonDetailDialogService } from '../shared/pokemon-detail-dialog.service';
+import { PokemonInterface, PokemonModelMapper } from '../shared/pokemon.model';
 
 @Component({
     selector: 'app-pokemon-evolution-chain-layout',

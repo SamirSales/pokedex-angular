@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
+import { PokemonInterface, PokemonModelMapper } from './pokemon.model';
 import { PokemonHttpClientService } from './pokemon-http-client.service';
 import { TranslateService } from '@ngx-translate/core';
 

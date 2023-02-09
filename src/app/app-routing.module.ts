@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PokemonsViewComponent } from './views/pokemons-view/pokemons-view.component';
-import { MoreInfoViewComponent } from './views/more-info-view/more-info-view.component';
-import { PageNotFoundViewComponent } from './views/page-not-found-view/page-not-found-view.component';
+import { PokemonListPageComponent } from './pokemon/pokemon-list-page/pokemon-list-page.component';
+import { MoreInfoPageComponent } from './shared/more-info-page/more-info-page.component';
+import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
 
 export const RoutePath = {
     POKEMONS: 'pokemons',
@@ -11,10 +11,10 @@ export const RoutePath = {
 };
 
 const routes: Routes = [
-    { path: RoutePath.POKEMONS, component: PokemonsViewComponent },
-    { path: RoutePath.MORE_INFO, component: MoreInfoViewComponent },
+    { path: RoutePath.POKEMONS, component: PokemonListPageComponent },
+    { path: RoutePath.MORE_INFO, component: MoreInfoPageComponent },
     { path: '', redirectTo: '/' + RoutePath.POKEMONS, pathMatch: 'full' },
-    { path: '**', component: PageNotFoundViewComponent }
+    { path: '**', component: NotFoundPageComponent }
 ];
 
 @NgModule({

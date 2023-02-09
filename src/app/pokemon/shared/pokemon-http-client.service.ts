@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { HttpErrorService } from '../services/http-error.service';
-import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
-import PokemonDetailsModel from '../model/pokemon-details.model';
-import PokemonEvolutionChainModel from '../model/pokemon-evolution-chain.model';
-import Config from '../config';
+import { HttpErrorService } from '../../shared/http-error.service';
+import { PokemonInterface, PokemonModelMapper } from './pokemon.model';
+import PokemonDetailsModel from './pokemon-details.model';
+import PokemonEvolutionChainModel from './pokemon-evolution-chain.model';
+import Config from '../../config';
 
 @Injectable()
 export class PokemonHttpClientService {
