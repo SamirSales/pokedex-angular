@@ -1,10 +1,10 @@
 <div *ngFor="let link of pokemonLinks">
-    <div style="padding: 3px">
-        <span style="padding-right: 6px; color: gray">#{{ link.id }}</span
+    <div style="padding: 0.188rem">
+        <span style="padding-right: 0.375rem; color: gray">#{{ link.id }}</span
         ><span>{{ link.name }}</span>
     </div>
 
-    <div style="padding: 0 0 0 20px">
+    <div style="padding: 0 0 0 0.5rem">
         <span><app-pokemon-evolution-link [pokemonLinks]="link.children"></app-pokemon-evolution-link></span>
     </div>
 </div>

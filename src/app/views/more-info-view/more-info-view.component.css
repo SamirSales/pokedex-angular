@@ -1,21 +1,21 @@
 .about {
     text-align: center;
-    padding: 30px;
+    padding: 1.875rem;
 }
 .about p {
     color: gray;
-    margin: 30px;
+    margin: 1.875rem;
 }
 .div-links {
-    margin: 0 auto 55px auto;
+    margin: 0 auto 3.438rem auto;
 }
 a.github {
     text-decoration: none;
     display: block;
     margin: 0 auto;
-    width: 180px;
-    border: solid 1px black;
-    padding: 10px 5px;
+    width: 11.25rem;
+    border: solid 0.063rem black;
+    padding: 0.625rem 0.313rem;
     color: white;
     background-color: black;
 }
@@ -27,9 +27,9 @@ a.linkedin {
     text-decoration: none;
     display: block;
     margin: 0 auto;
-    width: 180px;
-    border: solid 1px #0e76a8;
-    padding: 10px 5px;
+    width: 11.25rem;
+    border: solid 0.063rem #0e76a8;
+    padding: 0.625rem 0.313rem;
     color: white;
     background-color: #0e76a8;
 }

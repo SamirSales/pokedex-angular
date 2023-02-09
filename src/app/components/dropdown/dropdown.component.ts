@@ -19,7 +19,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
             state(
                 'hide',
                 style({
-                    transform: 'translateY(-10px)',
+                    transform: 'translateY(-0.625rem)',
                     display: 'none',
                     opacity: 0
                 })

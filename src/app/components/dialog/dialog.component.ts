@@ -19,7 +19,7 @@ const ANIMATION_TIMEOUT = 120;
             state(
                 'hide',
                 style({
-                    transform: 'translateY(50px) scale(0.5)',
+                    transform: 'translateY(3.125rem) scale(0.5)',
                     opacity: 0
                 })
             ),

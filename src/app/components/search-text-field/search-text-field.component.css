@@ -1,7 +1,7 @@
 #search-text-field {
-    margin: 5px 0;
-    height: 30px;
-    border-radius: 4px;
-    border: solid 1px #c0c0c0;
-    padding: 0 5px;
+    margin: 0.313rem 0;
+    height: 1.875rem;
+    border-radius: 0.25rem;
+    border: solid 0.063rem #c0c0c0;
+    padding: 0 0.313rem;
 }
