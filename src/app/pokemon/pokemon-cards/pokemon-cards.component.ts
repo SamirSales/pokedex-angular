@@ -1,8 +1,8 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonHttpClientService } from '../shared/pokemon-http-client.service';
-import { PokemonDetailDialogService } from '../shared/pokemon-detail-dialog.service';
-import { PokemonInterface } from '../shared/pokemon.model';
+import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
+import { PokemonDetailDialogService } from '../shared/service/pokemon-detail-dialog.service';
+import { PokemonInterface } from '../shared/model/pokemon.model';
 import { HttpErrorService } from '../../shared/http-error.service';
 import Config from '../../config';
 
@@ -83,7 +83,7 @@ export class PokemonCardsComponent implements OnInit {
     return Math.ceil(Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage);
   }
 
-  onClickItem(pokemon: any) {
+  onClickItem(pokemon: PokemonInterface) {
     this.pokemonDetailDialogService.setPokemon(pokemon);
     this.pokemonDetailDialogService.open();
   }

@@ -19,7 +19,7 @@ import { TablePaginatorComponent } from './shared/table-paginator/table-paginato
 import { LoaderComponent } from './shared/loader/loader.component';
 import { PokemonTypeLabelsComponent } from './pokemon/pokemon-type-labels/pokemon-type-labels.component';
 
-import { PokemonHttpClientService } from './pokemon/shared/pokemon-http-client.service';
+import { PokemonHttpClientService } from './pokemon/shared/service/pokemon-http-client.service';
 import { PokemonDetailDialogComponent } from './pokemon/pokemon-detail-dialog/pokemon-detail-dialog.component';
 import { ClickStopPropagationDirective } from './shared/click-stop-propagation.directive';
 import { PokemonCardsComponent } from './pokemon/pokemon-cards/pokemon-cards.component';

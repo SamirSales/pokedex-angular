@@ -125,6 +125,7 @@ export class TablePaginatorComponent implements OnInit {
   }
 
   onClick(element: any) {
+    console.log('el', element); //TODO:
     if (element.hasAction && !this.disabled) {
       this.changeSelectedIndex.emit(element.value);
     }

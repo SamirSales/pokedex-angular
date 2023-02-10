@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonHttpClientService } from '../shared/pokemon-http-client.service';
-import { PokemonDetailDialogService } from '../shared/pokemon-detail-dialog.service';
-import { PokemonInterface } from '../shared/pokemon.model';
+import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
+import { PokemonDetailDialogService } from '../shared/service/pokemon-detail-dialog.service';
+import { PokemonInterface } from '../shared/model/pokemon.model';
 import Config from '../../config';
 
 @Component({
