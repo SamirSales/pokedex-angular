@@ -1,53 +1,53 @@
 {
-    "infoPage": {
-        "linkMessage": "Code on GitHub",
-        "message": "This PokeDéx is an application demo using Angular created by Samir Sales.",
-        "title": "Hello!"
-    },
+  "infoPage": {
+    "linkMessage": "Code on GitHub",
+    "message": "This PokeDéx is an application demo using Angular created by Samir Sales.",
+    "title": "Hello!"
+  },
 
-    "general": {
-        "close": "Close",
-        "search": "Search",
-        "goBack": "Go back"
-    },
+  "general": {
+    "close": "Close",
+    "search": "Search",
+    "goBack": "Go back"
+  },
 
-    "pokemonDetails": {
-        "attack": "Attack",
-        "baseExperience": "Base experience",
-        "chainOfEvolution": "Chain of evolution",
-        "defense": "Defence",
-        "description": "Description",
-        "games": "Games",
-        "height": "Height",
-        "hp": "HP",
-        "image": "Image",
-        "name": "Name",
-        "number": "Number",
-        "special-attack": "Special attack",
-        "special-defense": "Special defense",
-        "speed": "Speed",
-        "type": "Type",
-        "weight": "Weight"
-    },
+  "pokemonDetails": {
+    "attack": "Attack",
+    "baseExperience": "Base experience",
+    "chainOfEvolution": "Chain of evolution",
+    "defense": "Defence",
+    "description": "Description",
+    "games": "Games",
+    "height": "Height",
+    "hp": "HP",
+    "image": "Image",
+    "name": "Name",
+    "number": "Number",
+    "special-attack": "Special attack",
+    "special-defense": "Special defense",
+    "speed": "Speed",
+    "type": "Type",
+    "weight": "Weight"
+  },
 
-    "pokemonType": {
-        "bug": "bug",
-        "dark": "dark",
-        "dragon": "dragon",
-        "electric": "electric",
-        "fairy": "fairy",
-        "fighting": "fighting",
-        "fire": "fire",
-        "flying": "flying",
-        "ghost": "ghost",
-        "grass": "grass",
-        "ground": "ground",
-        "ice": "ice",
-        "normal": "normal",
-        "poison": "poison",
-        "psychic": "psychic",
-        "rock": "rock",
-        "steel": "steel",
-        "water": "water"
-    }
+  "pokemonType": {
+    "bug": "bug",
+    "dark": "dark",
+    "dragon": "dragon",
+    "electric": "electric",
+    "fairy": "fairy",
+    "fighting": "fighting",
+    "fire": "fire",
+    "flying": "flying",
+    "ghost": "ghost",
+    "grass": "grass",
+    "ground": "ground",
+    "ice": "ice",
+    "normal": "normal",
+    "poison": "poison",
+    "psychic": "psychic",
+    "rock": "rock",
+    "steel": "steel",
+    "water": "water"
+  }
 }

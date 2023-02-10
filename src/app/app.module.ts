@@ -32,48 +32,48 @@ import { PokemonEvolutionChainLayoutComponent } from './pokemon/pokemon-evolutio
 import { PokemonEvolutionLinkComponent } from './pokemon/pokemon-evolution-chain-layout/pokemon-evolution-link/pokemon-evolution-link.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        ToolbarComponent,
-        PokemonTableComponent,
-        PokemonListPageComponent,
-        MoreInfoPageComponent,
-        NotFoundPageComponent,
-        TableComponent,
-        SearchTextFieldComponent,
-        TablePaginatorComponent,
-        LoaderComponent,
-        PokemonTypeLabelsComponent,
-        PokemonDetailDialogComponent,
-        ClickStopPropagationDirective,
-        PokemonCardsComponent,
-        DialogComponent,
-        ErrorDialogComponent,
-        DropdownComponent,
-        DropdownIdiomsComponent,
-        ButtonComponent,
-        PokemonEvolutionChainLayoutComponent,
-        PokemonEvolutionLinkComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        })
-    ],
-    providers: [PokemonHttpClientService],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    PokemonTableComponent,
+    PokemonListPageComponent,
+    MoreInfoPageComponent,
+    NotFoundPageComponent,
+    TableComponent,
+    SearchTextFieldComponent,
+    TablePaginatorComponent,
+    LoaderComponent,
+    PokemonTypeLabelsComponent,
+    PokemonDetailDialogComponent,
+    ClickStopPropagationDirective,
+    PokemonCardsComponent,
+    DialogComponent,
+    ErrorDialogComponent,
+    DropdownComponent,
+    DropdownIdiomsComponent,
+    ButtonComponent,
+    PokemonEvolutionChainLayoutComponent,
+    PokemonEvolutionLinkComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
+  ],
+  providers: [PokemonHttpClientService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-    return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http);
 }

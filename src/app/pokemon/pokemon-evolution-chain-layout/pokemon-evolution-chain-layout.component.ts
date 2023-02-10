@@ -3,18 +3,18 @@ import { PokemonDetailDialogService } from '../shared/pokemon-detail-dialog.serv
 import { PokemonInterface, PokemonModelMapper } from '../shared/pokemon.model';
 
 @Component({
-    selector: 'app-pokemon-evolution-chain-layout',
-    templateUrl: './pokemon-evolution-chain-layout.component.html',
-    styleUrls: ['./pokemon-evolution-chain-layout.component.css']
+  selector: 'app-pokemon-evolution-chain-layout',
+  templateUrl: './pokemon-evolution-chain-layout.component.html',
+  styleUrls: ['./pokemon-evolution-chain-layout.component.css']
 })
 export class PokemonEvolutionChainLayoutComponent implements OnInit {
-    pokemon: PokemonInterface = PokemonModelMapper.getEmpty();
+  pokemon: PokemonInterface = PokemonModelMapper.getEmpty();
 
-    constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
+  constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
 
-    getSelectedPokemonEvolutionTreeData() {
-        return this.pokemonDetailDialogService.getEvolutionTreeData();
-    }
+  getSelectedPokemonEvolutionTreeData() {
+    return this.pokemonDetailDialogService.getEvolutionTreeData();
+  }
 
-    ngOnInit(): void {}
+  ngOnInit(): void {}
 }

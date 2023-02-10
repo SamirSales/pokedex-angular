@@ -1,39 +1,39 @@
 <app-dialog [visible]="isVisible()" (close)="close()">
-    <h1>
-        <span style="color: gray">#{{ pokemon.id }}</span> {{ pokemon.name }}
-    </h1>
+  <h1>
+    <span style="color: gray">#{{ pokemon.id }}</span> {{ pokemon.name }}
+  </h1>
 
-    <div class="grid-container">
-        <div style="text-align: center; padding: auto">
-            <img [src]="pokemon.imageURL" width="200" height="200" />
-        </div>
-
-        <div>
-            <ul>
-                <li>
-                    <b>{{ 'pokemonDetails.height' | translate }}: </b>{{ pokemon.heightInMeters }} m
-                </li>
-                <li>
-                    <b>{{ 'pokemonDetails.weight' | translate }}: </b>{{ pokemon.weightInKg }} kg
-                </li>
-                <li>
-                    <b>{{ 'pokemonDetails.baseExperience' | translate }}: </b>{{ pokemon.baseExperience }}
-                </li>
-
-                <li *ngFor="let point of pokemon.points">
-                    <b>{{ 'pokemonDetails.' + point.name | translate }}: </b>{{ point.value }}
-                </li>
-            </ul>
-        </div>
+  <div class="grid-container">
+    <div style="text-align: center; padding: auto">
+      <img [src]="pokemon.imageURL" width="200" height="200" />
     </div>
 
-    <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
+    <div>
+      <ul>
+        <li>
+          <b>{{ 'pokemonDetails.height' | translate }}: </b>{{ pokemon.heightInMeters }} m
+        </li>
+        <li>
+          <b>{{ 'pokemonDetails.weight' | translate }}: </b>{{ pokemon.weightInKg }} kg
+        </li>
+        <li>
+          <b>{{ 'pokemonDetails.baseExperience' | translate }}: </b>{{ pokemon.baseExperience }}
+        </li>
 
-    <p>{{ getPokemonDescription() }}</p>
+        <li *ngFor="let point of pokemon.points">
+          <b>{{ 'pokemonDetails.' + point.name | translate }}: </b>{{ point.value }}
+        </li>
+      </ul>
+    </div>
+  </div>
 
-    <app-pokemon-evolution-chain-layout></app-pokemon-evolution-chain-layout>
+  <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
 
-    <p>
-        <b>{{ 'pokemonDetails.games' | translate }}: </b>{{ pokemon.gameNames.join(', ') }}
-    </p>
+  <p>{{ getPokemonDescription() }}</p>
+
+  <app-pokemon-evolution-chain-layout></app-pokemon-evolution-chain-layout>
+
+  <p>
+    <b>{{ 'pokemonDetails.games' | translate }}: </b>{{ pokemon.gameNames.join(', ') }}
+  </p>
 </app-dialog>

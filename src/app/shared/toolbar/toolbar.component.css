@@ -1,40 +1,40 @@
 .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3.75rem;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.75rem;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .toolbar img {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
 .toolbar #link-info {
-    height: 1.25rem;
-    margin: 0rem 1rem;
+  height: 1.25rem;
+  margin: 0rem 1rem;
 }
 
 .toolbar #link-info:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .spacer {
-    flex: 1;
+  flex: 1;
 }
 
 @media screen and (max-width: 18.125rem) {
-    .angular-icon-image {
-        display: none;
-    }
+  .angular-icon-image {
+    display: none;
+  }
 
-    .app-title {
-        padding-left: 0.75rem;
-    }
+  .app-title {
+    padding-left: 0.75rem;
+  }
 }

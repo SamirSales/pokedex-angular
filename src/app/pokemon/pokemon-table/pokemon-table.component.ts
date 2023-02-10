@@ -5,61 +5,58 @@ import { PokemonInterface } from '../shared/pokemon.model';
 import Config from '../../config';
 
 @Component({
-    selector: 'app-pokemon-table',
-    templateUrl: './pokemon-table.component.html',
-    styleUrls: ['./pokemon-table.component.css']
+  selector: 'app-pokemon-table',
+  templateUrl: './pokemon-table.component.html',
+  styleUrls: ['./pokemon-table.component.css']
 })
 export class PokemonTableComponent implements OnInit {
-    @Input() searchText: string = '';
+  @Input() searchText: string = '';
 
-    pokemonsPerPage: number = 5;
-    pageQuantity: number = 10;
-    selectedIndex: number = 1;
-    isLoading: boolean = false;
+  pokemonsPerPage: number = 5;
+  pageQuantity: number = 10;
+  selectedIndex: number = 1;
+  isLoading: boolean = false;
 
-    headers = [
-        { text: 'Number', input: 'id' },
-        { text: 'Image', input: 'imageURL' },
-        { text: 'Name', input: 'name' },
-        { text: 'Types', input: 'types' }
-    ];
+  headers = [
+    { text: 'Number', input: 'id' },
+    { text: 'Image', input: 'imageURL' },
+    { text: 'Name', input: 'name' },
+    { text: 'Types', input: 'types' }
+  ];
 
-    pokemons: PokemonInterface[] = [];
+  pokemons: PokemonInterface[] = [];
 
-    constructor(
-        public PokemonHttpClientService: PokemonHttpClientService,
-        private pokemonDetailDialogService: PokemonDetailDialogService
-    ) {}
+  constructor(public PokemonHttpClientService: PokemonHttpClientService, private pokemonDetailDialogService: PokemonDetailDialogService) {}
 
-    ngOnInit(): void {
-        this.refreshData();
-    }
+  ngOnInit(): void {
+    this.refreshData();
+  }
 
-    onChangeSelectedPaginatorIndex(index: number) {
-        this.selectedIndex = index;
-        this.refreshData();
-    }
+  onChangeSelectedPaginatorIndex(index: number) {
+    this.selectedIndex = index;
+    this.refreshData();
+  }
 
-    refreshData() {
-        this.isLoading = true;
-        this.PokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
-            next: (pokemons) => {
-                this.pokemons = pokemons;
-                this.isLoading = false;
-            },
-            error: (error) => {
-                console.log('error!', error);
-                this.isLoading = false;
-            }
-        });
-    }
+  refreshData() {
+    this.isLoading = true;
+    this.PokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
+      next: (pokemons) => {
+        this.pokemons = pokemons;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.log('error!', error);
+        this.isLoading = false;
+      }
+    });
+  }
 
-    getPageQuantity() {
-        return Math.ceil(Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage);
-    }
+  getPageQuantity() {
+    return Math.ceil(Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage);
+  }
 
-    onClickItem(pokemon: any) {
-        this.pokemonDetailDialogService.setPokemon(pokemon);
-        this.pokemonDetailDialogService.open();
-    }
+  onClickItem(pokemon: any) {
+    this.pokemonDetailDialogService.setPokemon(pokemon);
+    this.pokemonDetailDialogService.open();
+  }
 }

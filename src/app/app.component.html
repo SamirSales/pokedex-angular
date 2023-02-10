@@ -1,13 +1,9 @@
 <app-toolbar></app-toolbar>
 
 <div class="content">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
-<app-error-dialog
-    [visible]="shouldShowErrorDialog"
-    [error]="httpErrorResponse"
-    (close)="shouldShowErrorDialog = false"
-></app-error-dialog>
+<app-error-dialog [visible]="shouldShowErrorDialog" [error]="httpErrorResponse" (close)="shouldShowErrorDialog = false"></app-error-dialog>
 
 <footer>GitHub @samirsales</footer>

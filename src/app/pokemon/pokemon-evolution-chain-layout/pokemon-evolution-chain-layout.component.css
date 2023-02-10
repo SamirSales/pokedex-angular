@@ -1,12 +1,12 @@
 .pokemon-evolution-chain-layout {
-    border: solid 0.063rem #c0c0c0;
-    padding: 0 0.313rem 0.313rem 0.313rem;
+  border: solid 0.063rem #c0c0c0;
+  padding: 0 0.313rem 0.313rem 0.313rem;
 }
 
 .title {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.625rem;
-    padding: 0 0 0.5rem 0;
-    color: rgb(95, 94, 160);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  padding: 0 0 0.5rem 0;
+  color: rgb(95, 94, 160);
 }

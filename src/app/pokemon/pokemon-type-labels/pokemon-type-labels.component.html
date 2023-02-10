@@ -1,7 +1,7 @@
 <span
-    *ngFor="let type of types"
-    [style.background-color]="getBackgroundColorByType(type)"
-    [style.color]="getTextColorByType(type)"
-    [style.fontWeight]="500"
-    >{{ 'pokemonType.' + type.name | translate }}</span
+  *ngFor="let type of types"
+  [style.background-color]="getBackgroundColorByType(type)"
+  [style.color]="getTextColorByType(type)"
+  [style.fontWeight]="500"
+  >{{ 'pokemonType.' + type.name | translate }}</span
 >

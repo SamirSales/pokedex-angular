@@ -1,53 +1,53 @@
 {
-    "infoPage": {
-        "linkMessage": "Code sur GitHub",
-        "message": "Ce PokeDéx est une démo d'application utilisant Angular créée par Samir Sales.",
-        "title": "Bonjour!"
-    },
+  "infoPage": {
+    "linkMessage": "Code sur GitHub",
+    "message": "Ce PokeDéx est une démo d'application utilisant Angular créée par Samir Sales.",
+    "title": "Bonjour!"
+  },
 
-    "general": {
-        "search": "Chercher",
-        "close": "Fermer",
-        "goBack": "Retourner"
-    },
+  "general": {
+    "search": "Chercher",
+    "close": "Fermer",
+    "goBack": "Retourner"
+  },
 
-    "pokemonDetails": {
-        "attack": "Attaque",
-        "baseExperience": "Expérience de base",
-        "chainOfEvolution": "Chaîne d'évolution",
-        "defense": "Défense",
-        "description": "Description",
-        "games": "Jeux",
-        "height": "Hauteur",
-        "hp": "HP",
-        "image": "Image",
-        "name": "Nom",
-        "number": "Numéro",
-        "special-attack": "Attaque spéciale",
-        "special-defense": "Défense spéciale",
-        "speed": "Vitesse",
-        "type": "Tapez",
-        "weight": "Poids"
-    },
+  "pokemonDetails": {
+    "attack": "Attaque",
+    "baseExperience": "Expérience de base",
+    "chainOfEvolution": "Chaîne d'évolution",
+    "defense": "Défense",
+    "description": "Description",
+    "games": "Jeux",
+    "height": "Hauteur",
+    "hp": "HP",
+    "image": "Image",
+    "name": "Nom",
+    "number": "Numéro",
+    "special-attack": "Attaque spéciale",
+    "special-defense": "Défense spéciale",
+    "speed": "Vitesse",
+    "type": "Tapez",
+    "weight": "Poids"
+  },
 
-    "pokemonType": {
-        "bug": "insecte",
-        "dark": "sombre",
-        "dragon": "dragon",
-        "electric": "électrique",
-        "fairy": "fée",
-        "fighting": "combattre",
-        "fire": "feu",
-        "flying": "volant",
-        "ghost": "fantôme",
-        "grass": "herbe",
-        "ground": "sol",
-        "ice": "glace",
-        "normal": "normal",
-        "poison": "toxique",
-        "psychic": "psychique",
-        "rock": "roche",
-        "steel": "acier",
-        "water": "l'eau"
-    }
+  "pokemonType": {
+    "bug": "insecte",
+    "dark": "sombre",
+    "dragon": "dragon",
+    "electric": "électrique",
+    "fairy": "fée",
+    "fighting": "combattre",
+    "fire": "feu",
+    "flying": "volant",
+    "ghost": "fantôme",
+    "grass": "herbe",
+    "ground": "sol",
+    "ice": "glace",
+    "normal": "normal",
+    "poison": "toxique",
+    "psychic": "psychique",
+    "rock": "roche",
+    "steel": "acier",
+    "water": "l'eau"
+  }
 }

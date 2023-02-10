@@ -1,21 +1,21 @@
 <p *ngIf="searchText.trim() != ''">Searching {{ searchText }}...</p>
 
 <app-table [headers]="headers" [items]="pokemons" (clickItem)="onClickItem($event)">
-    <ng-template let-item>
-        <div [ngSwitch]="item.header">
-            <span *ngSwitchCase="'id'"># {{ item.value }}</span>
-            <img *ngSwitchCase="'imageURL'" [src]="item.value" height="90" width="90" />
-            <span *ngSwitchCase="'name'">{{ item.value }}</span>
-            <app-pokemon-type-labels *ngSwitchCase="'types'" [types]="item.value"></app-pokemon-type-labels>
-        </div>
-    </ng-template>
+  <ng-template let-item>
+    <div [ngSwitch]="item.header">
+      <span *ngSwitchCase="'id'"># {{ item.value }}</span>
+      <img *ngSwitchCase="'imageURL'" [src]="item.value" height="90" width="90" />
+      <span *ngSwitchCase="'name'">{{ item.value }}</span>
+      <app-pokemon-type-labels *ngSwitchCase="'types'" [types]="item.value"></app-pokemon-type-labels>
+    </div>
+  </ng-template>
 </app-table>
 
 <app-table-paginator
-    [disabled]="isLoading"
-    [pageQuantity]="getPageQuantity()"
-    [selectedIndex]="selectedIndex"
-    (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
+  [disabled]="isLoading"
+  [pageQuantity]="getPageQuantity()"
+  [selectedIndex]="selectedIndex"
+  (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
 ></app-table-paginator>
 
 <app-loader *ngIf="isLoading"></app-loader>

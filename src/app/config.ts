@@ -1,3 +1,3 @@
 export default {
-    MAX_NUMBER_OF_POKEMONS: 898
+  MAX_NUMBER_OF_POKEMONS: 898
 };

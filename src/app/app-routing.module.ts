@@ -6,19 +6,19 @@ import { MoreInfoPageComponent } from './shared/more-info-page/more-info-page.co
 import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
 
 export const RoutePath = {
-    POKEMONS: 'pokemons',
-    MORE_INFO: 'more-info'
+  POKEMONS: 'pokemons',
+  MORE_INFO: 'more-info'
 };
 
 const routes: Routes = [
-    { path: RoutePath.POKEMONS, component: PokemonListPageComponent },
-    { path: RoutePath.MORE_INFO, component: MoreInfoPageComponent },
-    { path: '', redirectTo: '/' + RoutePath.POKEMONS, pathMatch: 'full' },
-    { path: '**', component: NotFoundPageComponent }
+  { path: RoutePath.POKEMONS, component: PokemonListPageComponent },
+  { path: RoutePath.MORE_INFO, component: MoreInfoPageComponent },
+  { path: '', redirectTo: '/' + RoutePath.POKEMONS, pathMatch: 'full' },
+  { path: '**', component: NotFoundPageComponent }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: true })],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

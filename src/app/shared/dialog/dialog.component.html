@@ -1,9 +1,9 @@
 <div class="modal-backside" [style]="getDialogStyle()" (click)="close()">
-    <div class="modal-content" [@dialogState]="animationState" click-stop-propagation>
-        <ng-content></ng-content>
+  <div class="modal-content" [@dialogState]="animationState" click-stop-propagation>
+    <ng-content></ng-content>
 
-        <div style="text-align: right">
-            <app-button (click)="close()">{{ 'general.close' | translate }}</app-button>
-        </div>
+    <div style="text-align: right">
+      <app-button (click)="close()">{{ 'general.close' | translate }}</app-button>
     </div>
+  </div>
 </div>

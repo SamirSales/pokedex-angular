@@ -1,9 +1,9 @@
 <div id="table-paginator" [class]="getContainerCssClasses()" #tablePaginatorContainer>
-    <button (click)="onClickLeftButton()">🡨</button>
+  <button (click)="onClickLeftButton()">🡨</button>
 
-    <span *ngFor="let element of getElements()">
-        <button [class]="element.class" (click)="onClick(element)">{{ element.value }}</button>
-    </span>
+  <span *ngFor="let element of getElements()">
+    <button [class]="element.class" (click)="onClick(element)">{{ element.value }}</button>
+  </span>
 
-    <button (click)="onClickRightButton()">🡪</button>
+  <button (click)="onClickRightButton()">🡪</button>
 </div>

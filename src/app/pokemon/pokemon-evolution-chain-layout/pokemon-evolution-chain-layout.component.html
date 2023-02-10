@@ -1,8 +1,8 @@
 <div class="pokemon-evolution-chain-layout">
-    <span class="title">{{ 'pokemonDetails.chainOfEvolution' | translate }}</span>
+  <span class="title">{{ 'pokemonDetails.chainOfEvolution' | translate }}</span>
 
-    <app-pokemon-evolution-link
-        *ngIf="getSelectedPokemonEvolutionTreeData().length > 0"
-        [pokemonLinks]="getSelectedPokemonEvolutionTreeData()"
-    ></app-pokemon-evolution-link>
+  <app-pokemon-evolution-link
+    *ngIf="getSelectedPokemonEvolutionTreeData().length > 0"
+    [pokemonLinks]="getSelectedPokemonEvolutionTreeData()"
+  ></app-pokemon-evolution-link>
 </div>
