@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
-import { PokemonHttpClientService } from './pokemon-http-client.service';
 import PokemonDetailsModel from '../model/pokemon-details.model';
 import PokemonEvolutionChainModel from '../model/pokemon-evolution-chain.model';
+import { Injectable } from '@angular/core';
+import { PokemonHttpClientService } from './pokemon-http-client.service';
+import { PokemonInterface } from '../model/pokemon.model';
+import { Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({

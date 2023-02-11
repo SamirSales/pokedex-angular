@@ -2,7 +2,7 @@
   <span class="title">{{ 'pokemonDetails.chainOfEvolution' | translate }}</span>
 
   <app-pokemon-evolution-link
-    *ngIf="getSelectedPokemonEvolutionTreeData().length > 0"
     [pokemonLinks]="getSelectedPokemonEvolutionTreeData()"
+    *ngIf="getSelectedPokemonEvolutionTreeData().length > 0"
   ></app-pokemon-evolution-link>
 </div>

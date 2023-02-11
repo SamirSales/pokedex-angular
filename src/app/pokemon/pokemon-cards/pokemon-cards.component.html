@@ -1,7 +1,7 @@
 <p *ngIf="searchText.trim() != ''">Searching {{ searchText }}...</p>
 
 <div class="container">
-  <div class="pokemon-card" *ngFor="let pokemon of pokemons" [@cardState] (click)="onClickItem(pokemon)">
+  <div class="pokemon-card" [@cardState] (click)="onClickItem(pokemon)" *ngFor="let pokemon of pokemons">
     <table>
       <tr>
         <td><img [src]="pokemon.imageURL" /></td>
