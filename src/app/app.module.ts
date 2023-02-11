@@ -9,11 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-import { PokemonTableComponent } from './pokemon/pokemon-table/pokemon-table.component';
 import { PokemonListPageComponent } from './pokemon/pokemon-list-page/pokemon-list-page.component';
 import { MoreInfoPageComponent } from './shared/more-info-page/more-info-page.component';
 import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
-import { TableComponent } from './shared/table/table.component';
 import { SearchTextFieldComponent } from './shared/search-text-field/search-text-field.component';
 import { TablePaginatorComponent } from './shared/table-paginator/table-paginator.component';
 import { LoaderComponent } from './shared/loader/loader.component';
@@ -35,11 +33,9 @@ import { PokemonEvolutionLinkComponent } from './pokemon/pokemon-evolution-chain
   declarations: [
     AppComponent,
     ToolbarComponent,
-    PokemonTableComponent,
     PokemonListPageComponent,
     MoreInfoPageComponent,
     NotFoundPageComponent,
-    TableComponent,
     SearchTextFieldComponent,
     TablePaginatorComponent,
     LoaderComponent,
