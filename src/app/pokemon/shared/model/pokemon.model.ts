@@ -35,13 +35,13 @@ export const PokemonModelMapper = {
 };
 
 export interface PokemonInterface {
-  id: string;
-  imageURL: string;
-  name: string;
-  types: { name: string }[];
-  heightInMeters: number;
-  weightInKg: number;
-  baseExperience: any;
-  gameNames: string[];
-  points: { name: string; value: number }[];
+  readonly id: string;
+  readonly imageURL: string;
+  readonly name: string;
+  readonly types: { name: string }[];
+  readonly heightInMeters: number;
+  readonly weightInKg: number;
+  readonly baseExperience: any;
+  readonly gameNames: string[];
+  readonly points: { name: string; value: number }[];
 }

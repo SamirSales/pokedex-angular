@@ -8,7 +8,7 @@ import { PokemonInterface, PokemonModelMapper } from '../shared/model/pokemon.mo
   styleUrls: ['./pokemon-evolution-chain-layout.component.css']
 })
 export class PokemonEvolutionChainLayoutComponent implements OnInit {
-  pokemon: PokemonInterface = PokemonModelMapper.getEmpty();
+  pokemon: PokemonInterface | null = null;
 
   constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
 

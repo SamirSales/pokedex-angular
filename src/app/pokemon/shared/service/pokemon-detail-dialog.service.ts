@@ -13,7 +13,7 @@ export class PokemonDetailDialogService {
   selectedPokemonChanged = new Subject<PokemonInterface>();
 
   private isDialogVisible: boolean = false;
-  private pokemon: PokemonInterface | null = PokemonModelMapper.getEmpty();
+  private pokemon: PokemonInterface | null = null;
   private details: PokemonDetailsModel | null = null;
   private pokemonEvolutionChainModel: PokemonEvolutionChainModel | null = null;
 
