@@ -14,8 +14,8 @@ export class SearchTextFieldComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onChangeValue(value: string) {
-    this.ngModelChange.emit(value);
+  onChangeValue(event: any) {
+    this.ngModelChange.emit(event.target.value);
   }
 
   getPlaceholderText() {
