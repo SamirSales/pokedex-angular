@@ -1,5 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef, Input, Output, EventEmitter } from '@angular/core';
 
+interface ClickPageElement {
+  value: number | string;
+  class: string;
+  hasAction: boolean;
+}
+
 @Component({
   selector: 'app-table-paginator',
   templateUrl: './table-paginator.component.html',
@@ -54,7 +60,7 @@ export class TablePaginatorComponent implements OnInit {
     return elements;
   }
 
-  isIndexInVisibleRange(index: any) {
+  isIndexInVisibleRange(index: number) {
     if (!this.isPageQuantityToLarge() || index == 1 || index == this.pageQuantity || index == this.selectedIndex) {
       return true;
     }
@@ -124,9 +130,8 @@ export class TablePaginatorComponent implements OnInit {
     return this.disabled ? 'disabled-container' : '';
   }
 
-  onClick(element: any) {
-    console.log('el', element); //TODO:
-    if (element.hasAction && !this.disabled) {
+  onClick(element: ClickPageElement) {
+    if (typeof element.value != 'string' && element.hasAction && !this.disabled) {
       this.changeSelectedIndex.emit(element.value);
     }
   }

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
 import { PokemonHttpClientService } from './pokemon-http-client.service';
+import PokemonDetailsModel from '../model/pokemon-details.model';
+import PokemonEvolutionChainModel from '../model/pokemon-evolution-chain.model';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -12,8 +14,8 @@ export class PokemonDetailDialogService {
 
   private isDialogVisible: boolean = false;
   private pokemon = PokemonModelMapper.getEmpty();
-  private details: any = null;
-  private pokemonEvolutionChainModel: any = null;
+  private details: PokemonDetailsModel | null = null;
+  private pokemonEvolutionChainModel: PokemonEvolutionChainModel | null = null;
 
   constructor(private pokemonHttpClientService: PokemonHttpClientService, private translate: TranslateService) {}
 
@@ -66,8 +68,10 @@ export class PokemonDetailDialogService {
   }
 
   private setEvolutionData() {
-    this.pokemonHttpClientService.getEvolutionChainByURL(this.details.getEvolutionChainURL()).subscribe((pokemonEvolutionChainModel) => {
-      this.pokemonEvolutionChainModel = pokemonEvolutionChainModel;
-    });
+    if (this.details != null) {
+      this.pokemonHttpClientService.getEvolutionChainByURL(this.details.getEvolutionChainURL()).subscribe((pokemonEvolutionChainModel) => {
+        this.pokemonEvolutionChainModel = pokemonEvolutionChainModel;
+      });
+    }
   }
 }
