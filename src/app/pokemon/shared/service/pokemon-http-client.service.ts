@@ -30,7 +30,7 @@ export class PokemonHttpClientService {
     return forkJoin(promises);
   }
 
-  getByNameOrId(nameOrId: any): Observable<PokemonInterface> {
+  getByNameOrId(nameOrId: string | number): Observable<PokemonInterface> {
     return this.httpClient.get(this.BASE_URL + '/pokemon/' + nameOrId).pipe(
       map((data) => {
         return PokemonModelMapper.getByDataResponse(data);
@@ -42,7 +42,7 @@ export class PokemonHttpClientService {
     );
   }
 
-  getMoreInfoById(pokemonId: any): Observable<PokemonDetailsModel> {
+  getMoreInfoById(pokemonId: number | string): Observable<PokemonDetailsModel> {
     return this.httpClient.get(this.BASE_URL + '/pokemon-species/' + pokemonId).pipe(
       map((data) => {
         return new PokemonDetailsModel(data);
@@ -54,7 +54,7 @@ export class PokemonHttpClientService {
     );
   }
 
-  getEvolutionChainByURL(url: string): Observable<any> {
+  getEvolutionChainByURL(url: string): Observable<PokemonEvolutionChainModel> {
     return this.httpClient.get(url).pipe(
       map((data) => {
         return new PokemonEvolutionChainModel(data);

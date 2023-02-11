@@ -13,7 +13,7 @@ export class PokemonDetailDialogService {
   selectedPokemonChanged = new Subject<PokemonInterface>();
 
   private isDialogVisible: boolean = false;
-  private pokemon = PokemonModelMapper.getEmpty();
+  private pokemon: PokemonInterface | null = PokemonModelMapper.getEmpty();
   private details: PokemonDetailsModel | null = null;
   private pokemonEvolutionChainModel: PokemonEvolutionChainModel | null = null;
 
@@ -54,10 +54,12 @@ export class PokemonDetailDialogService {
   }
 
   private setDetailedInformationOfPokemon() {
-    this.pokemonHttpClientService.getMoreInfoById(this.pokemon.id).subscribe((details) => {
-      this.details = details;
-      this.setEvolutionData();
-    });
+    if (this.pokemon != null) {
+      this.pokemonHttpClientService.getMoreInfoById(this.pokemon.id).subscribe((details) => {
+        this.details = details;
+        this.setEvolutionData();
+      });
+    }
   }
 
   private getLocale() {
