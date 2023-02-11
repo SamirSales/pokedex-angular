@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpErrorService } from './shared/http-error.service';
 import { TranslateService } from '@ngx-translate/core';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnDestroy {
   private errorSubscrition: Subscription;
 
   shouldShowErrorDialog: boolean = false;
-  httpErrorResponse = null;
+  httpErrorResponse: HttpErrorResponse | null = null;
 
   constructor(private httpErrorService: HttpErrorService, private translate: TranslateService) {
     this.errorSubscrition = this.httpErrorService.getSubject().subscribe((error) => {

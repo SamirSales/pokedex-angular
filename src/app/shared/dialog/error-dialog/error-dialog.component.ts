@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./error-dialog.component.css']
 })
 export class ErrorDialogComponent implements OnInit {
-  @Input() error: any = null;
+  @Input() error: HttpErrorResponse | null = null;
   @Input() visible: boolean = false;
   @Output() close = new EventEmitter();
 

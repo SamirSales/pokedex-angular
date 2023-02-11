@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -5,15 +6,15 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpErrorService {
-  private error = new Subject();
+  private error = new Subject<HttpErrorResponse>();
 
   constructor() {}
 
-  submit(error: any) {
+  submit(error: HttpErrorResponse) {
     this.error.next(error);
   }
 
-  getSubject(): Subject<any> {
+  getSubject(): Subject<HttpErrorResponse> {
     return this.error;
   }
 }
