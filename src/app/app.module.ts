@@ -28,6 +28,8 @@ import { DropdownIdiomsComponent } from './shared/dropdown/dropdown-idioms/dropd
 import { ButtonComponent } from './shared/button/button.component';
 import { PokemonEvolutionChainLayoutComponent } from './pokemon/pokemon-evolution-chain-layout/pokemon-evolution-chain-layout.component';
 import { PokemonEvolutionLinkComponent } from './pokemon/pokemon-evolution-chain-layout/pokemon-evolution-link/pokemon-evolution-link.component';
+import { TextColorByPokemonTypePipe } from './pokemon/shared/pipe/text-color-by-pokemon-type.pipe';
+import { BackgroundColorByPokemonTypePipe } from './pokemon/shared/pipe/background-color-by-pokemon-type.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { PokemonEvolutionLinkComponent } from './pokemon/pokemon-evolution-chain
     DropdownIdiomsComponent,
     ButtonComponent,
     PokemonEvolutionChainLayoutComponent,
-    PokemonEvolutionLinkComponent
+    PokemonEvolutionLinkComponent,
+    TextColorByPokemonTypePipe,
+    BackgroundColorByPokemonTypePipe
   ],
   imports: [
     BrowserModule,

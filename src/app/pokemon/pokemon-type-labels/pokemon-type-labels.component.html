@@ -1,6 +1,6 @@
 <span
-  [style.background-color]="getBackgroundColorByType(type)"
-  [style.color]="getTextColorByType(type)"
+  style.background-color="{{ type.name | backgroundColorByPokemonType: outlined }}"
+  style.color="{{ type.name | textColorByPokemonType: outlined }}"
   [style.fontWeight]="500"
   *ngFor="let type of types"
   >{{ 'pokemonType.' + type.name | translate }}</span
