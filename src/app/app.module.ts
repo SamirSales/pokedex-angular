@@ -7,55 +7,34 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-import { PokemonListPageComponent } from './pokemon/pokemon-list-page/pokemon-list-page.component';
-import { MoreInfoPageComponent } from './shared/more-info-page/more-info-page.component';
-import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
-import { SearchTextFieldComponent } from './shared/search-text-field/search-text-field.component';
-import { TablePaginatorComponent } from './shared/table-paginator/table-paginator.component';
-import { LoaderComponent } from './shared/loader/loader.component';
-import { PokemonTypeLabelsComponent } from './pokemon/pokemon-type-labels/pokemon-type-labels.component';
+import { PokemonModule } from './pokemon/pokemon.module';
+import { MoreInfoModule } from './more-info/more-info.module';
+import { SharedModule } from './shared/shared.module';
 
-import { PokemonHttpClientService } from './pokemon/shared/service/pokemon-http-client.service';
-import { PokemonDetailDialogComponent } from './pokemon/pokemon-detail-dialog/pokemon-detail-dialog.component';
+import { AppComponent } from './app.component';
 import { ClickStopPropagationDirective } from './shared/click-stop-propagation.directive';
-import { PokemonCardsComponent } from './pokemon/pokemon-cards/pokemon-cards.component';
-import { DialogComponent } from './shared/dialog/dialog.component';
-import { ErrorDialogComponent } from './shared/dialog/error-dialog/error-dialog.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { DropdownIdiomsComponent } from './shared/dropdown/dropdown-idioms/dropdown-idioms.component';
-import { ButtonComponent } from './shared/button/button.component';
-import { PokemonEvolutionChainLayoutComponent } from './pokemon/pokemon-evolution-chain-layout/pokemon-evolution-chain-layout.component';
-import { PokemonEvolutionLinkComponent } from './pokemon/pokemon-evolution-chain-layout/pokemon-evolution-link/pokemon-evolution-link.component';
-import { TextColorByPokemonTypePipe } from './pokemon/shared/pipe/text-color-by-pokemon-type.pipe';
-import { BackgroundColorByPokemonTypePipe } from './pokemon/shared/pipe/background-color-by-pokemon-type.pipe';
+import { ErrorDialogComponent } from './shared/dialog/error-dialog/error-dialog.component';
+import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
+import { SearchTextFieldComponent } from './shared/search-text-field/search-text-field.component';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
-    PokemonListPageComponent,
-    MoreInfoPageComponent,
-    NotFoundPageComponent,
-    SearchTextFieldComponent,
-    TablePaginatorComponent,
-    LoaderComponent,
-    PokemonTypeLabelsComponent,
-    PokemonDetailDialogComponent,
     ClickStopPropagationDirective,
-    PokemonCardsComponent,
-    DialogComponent,
-    ErrorDialogComponent,
     DropdownComponent,
     DropdownIdiomsComponent,
-    ButtonComponent,
-    PokemonEvolutionChainLayoutComponent,
-    PokemonEvolutionLinkComponent,
-    TextColorByPokemonTypePipe,
-    BackgroundColorByPokemonTypePipe
+    ErrorDialogComponent,
+    NotFoundPageComponent,
+    SearchTextFieldComponent,
+    ToolbarComponent
   ],
   imports: [
+    PokemonModule,
+    MoreInfoModule,
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -68,7 +47,6 @@ import { BackgroundColorByPokemonTypePipe } from './pokemon/shared/pipe/backgrou
       }
     })
   ],
-  providers: [PokemonHttpClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
