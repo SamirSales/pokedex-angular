@@ -1,0 +1,39 @@
+<div *ngIf="pokemon != null && pokemonDetails != null">
+  <h1>
+    <span style="color: gray">#{{ selectedId }}</span> {{ pokemon.name }}
+  </h1>
+
+  <div class="grid-container">
+    <div style="text-align: center; padding: auto">
+      <img width="200" height="200" [src]="pokemon.imageURL" />
+    </div>
+
+    <div>
+      <ul>
+        <li>
+          <b>{{ 'pokemonDetails.height' | translate }}: </b>{{ pokemon.heightInMeters }} m
+        </li>
+        <li>
+          <b>{{ 'pokemonDetails.weight' | translate }}: </b>{{ pokemon.weightInKg }} kg
+        </li>
+        <li>
+          <b>{{ 'pokemonDetails.baseExperience' | translate }}: </b>{{ pokemon.baseExperience }}
+        </li>
+
+        <li *ngFor="let point of pokemon.points">
+          <b>{{ 'pokemonDetails.' + point.name | translate }}: </b>{{ point.value }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
+
+  <p>{{ getPokemonDescription() }}</p>
+
+  <app-pokemon-evolution-chain-layout></app-pokemon-evolution-chain-layout>
+
+  <p>
+    <b>{{ 'pokemonDetails.games' | translate }}: </b>{{ pokemon.gameNames.join(', ') }}
+  </p>
+</div>
