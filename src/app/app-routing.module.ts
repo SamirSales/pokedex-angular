@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 import { PokemonListPageComponent } from './pokemon/pokemon-list-page/pokemon-list-page.component';
 import { PokemonDetailsPageComponent } from './pokemon/pokemon-details-page/pokemon-details-page.component';
@@ -24,4 +24,15 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  constructor(private router: Router) {}
+
+  goToPokemonDetailsPageById(id: string | number) {
+    const URL = '/' + RoutePath.POKEMON_DETAILS.replace(':id', id + '');
+    this.router.navigate([URL]);
+  }
+
+  goToPokemonCardListPage() {
+    this.router.navigate([RoutePath.POKEMONS]);
+  }
+}

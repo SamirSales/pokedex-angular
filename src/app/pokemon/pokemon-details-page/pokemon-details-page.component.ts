@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import PokemonDetailsModel from '../shared/model/pokemon-details.model';
 import { ActivatedRoute } from '@angular/router';
+import { AppRoutingModule } from '../../app-routing.module';
+import { Component } from '@angular/core';
+import { PokemonDetailsService } from '../shared/service/pokemon-details.service';
 import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
 import { PokemonInterface } from '../shared/model/pokemon.model';
-import PokemonDetailsModel from '../shared/model/pokemon-details.model';
-import { PokemonDetailDialogService } from '../shared/service/pokemon-detail-dialog.service';
 
 @Component({
   selector: 'app-pokemon-details-page',
@@ -16,9 +17,10 @@ export class PokemonDetailsPageComponent {
   pokemonDetails: PokemonDetailsModel | null = null;
 
   constructor(
-    private route: ActivatedRoute,
+    private appRoutingModule: AppRoutingModule,
+    private pokemonDetailsService: PokemonDetailsService,
     private pokemonHttpClientService: PokemonHttpClientService,
-    private pokemonDetailDialogService: PokemonDetailDialogService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class PokemonDetailsPageComponent {
       if (this.selectedId != null) {
         this.pokemonHttpClientService.getByNameOrId(this.selectedId).subscribe((pokemon) => {
           this.pokemon = pokemon;
+          this.pokemonDetailsService.setPokemon(pokemon);
         });
 
         this.pokemonHttpClientService.getMoreInfoById(this.selectedId).subscribe((pokemonDetails) => {
@@ -42,6 +45,10 @@ export class PokemonDetailsPageComponent {
   }
 
   getPokemonDescription() {
-    return this.pokemonDetailDialogService.getPokemonDescription();
+    return this.pokemonDetailsService.getPokemonDescription();
+  }
+
+  goToPokemonCardListPage() {
+    this.appRoutingModule.goToPokemonCardListPage();
   }
 }

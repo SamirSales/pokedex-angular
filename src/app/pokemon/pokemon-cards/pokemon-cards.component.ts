@@ -1,10 +1,9 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import Config from '../../config';
+import { AppRoutingModule } from '../../app-routing.module';
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
-import { PokemonDetailDialogService } from '../shared/service/pokemon-detail-dialog.service';
 import { PokemonInterface } from '../shared/model/pokemon.model';
-import { HttpErrorService } from '../../shared/http-error.service';
-import Config from '../../config';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-pokemon-cards',
@@ -48,11 +47,7 @@ export class PokemonCardsComponent implements OnInit {
 
   pokemons: PokemonInterface[] = [];
 
-  constructor(
-    public PokemonHttpClientService: PokemonHttpClientService,
-    private pokemonDetailDialogService: PokemonDetailDialogService,
-    private httpErrorService: HttpErrorService
-  ) {}
+  constructor(private appRoutingModule: AppRoutingModule, public PokemonHttpClientService: PokemonHttpClientService) {}
 
   ngOnInit(): void {
     this.refreshData();
@@ -84,7 +79,6 @@ export class PokemonCardsComponent implements OnInit {
   }
 
   onClickItem(pokemon: PokemonInterface) {
-    this.pokemonDetailDialogService.setPokemon(pokemon);
-    this.pokemonDetailDialogService.open();
+    this.appRoutingModule.goToPokemonDetailsPageById(pokemon.id);
   }
 }

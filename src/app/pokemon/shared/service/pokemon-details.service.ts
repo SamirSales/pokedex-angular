@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable({
   providedIn: 'root'
 })
-export class PokemonDetailDialogService {
+export class PokemonDetailsService {
   selectedPokemonChanged = new Subject<PokemonInterface>();
 
   private isDialogVisible: boolean = false;

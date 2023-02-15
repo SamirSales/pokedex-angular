@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonDetailDialogService } from '../shared/service/pokemon-detail-dialog.service';
+import { PokemonDetailsService } from '../shared/service/pokemon-details.service';
 import { PokemonInterface, PokemonModelMapper } from '../shared/model/pokemon.model';
 
 @Component({
@@ -10,10 +10,10 @@ import { PokemonInterface, PokemonModelMapper } from '../shared/model/pokemon.mo
 export class PokemonEvolutionChainLayoutComponent implements OnInit {
   pokemon: PokemonInterface | null = null;
 
-  constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
+  constructor(private pokemonDetailsService: PokemonDetailsService) {}
 
   getSelectedPokemonEvolutionTreeData() {
-    return this.pokemonDetailDialogService.getEvolutionTreeData();
+    return this.pokemonDetailsService.getEvolutionTreeData();
   }
 
   ngOnInit(): void {}

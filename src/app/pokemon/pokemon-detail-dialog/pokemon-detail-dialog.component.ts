@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonDetailDialogService } from '../shared/service/pokemon-detail-dialog.service';
+import { PokemonDetailsService } from '../shared/service/pokemon-details.service';
 import { PokemonInterface, PokemonModelMapper } from '../shared/model/pokemon.model';
 
 @Component({
@@ -10,20 +10,20 @@ import { PokemonInterface, PokemonModelMapper } from '../shared/model/pokemon.mo
 export class PokemonDetailDialogComponent implements OnInit {
   pokemon: PokemonInterface = PokemonModelMapper.getEmpty();
 
-  constructor(private pokemonDetailDialogService: PokemonDetailDialogService) {}
+  constructor(private pokemonDetailsService: PokemonDetailsService) {}
 
   ngOnInit(): void {
-    this.pokemonDetailDialogService.selectedPokemonChanged.subscribe((pokemon) => {
+    this.pokemonDetailsService.selectedPokemonChanged.subscribe((pokemon) => {
       this.pokemon = pokemon;
     });
   }
 
   close() {
-    this.pokemonDetailDialogService.close();
+    this.pokemonDetailsService.close();
   }
 
   getPokemonDescription() {
-    return this.pokemonDetailDialogService.getPokemonDescription();
+    return this.pokemonDetailsService.getPokemonDescription();
   }
 
   getDialogStyle() {
@@ -31,8 +31,8 @@ export class PokemonDetailDialogComponent implements OnInit {
   }
 
   isVisible() {
-    if (this.pokemonDetailDialogService != undefined || this.pokemonDetailDialogService != null) {
-      return this.pokemonDetailDialogService.isVisible();
+    if (this.pokemonDetailsService != undefined || this.pokemonDetailsService != null) {
+      return this.pokemonDetailsService.isVisible();
     }
     return false;
   }
