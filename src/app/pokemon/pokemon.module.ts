@@ -20,6 +20,7 @@ import { TextColorByPokemonTypePipe } from './shared/pipe/text-color-by-pokemon-
 
 import { PokemonHttpClientService } from './shared/service/pokemon-http-client.service';
 import { PokemonDetailsPageComponent } from './pokemon-details-page/pokemon-details-page.component';
+import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-type-selector.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PokemonDetailsPageComponent } from './pokemon-details-page/pokemon-deta
     PokemonTypeLabelsComponent,
     TablePaginatorComponent,
     TextColorByPokemonTypePipe,
-    PokemonDetailsPageComponent
+    PokemonDetailsPageComponent,
+    PokemonTypeSelectorComponent
   ],
   imports: [
     CommonModule,
