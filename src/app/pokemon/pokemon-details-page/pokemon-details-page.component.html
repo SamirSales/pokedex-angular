@@ -4,11 +4,12 @@
   </h1>
 
   <div class="grid-container">
-    <div style="text-align: center; padding: auto">
-      <img width="200" height="200" [src]="pokemon.imageURL" />
+    <div class="square">
+      <img width="400" height="400" [src]="pokemon.imageURL" />
+      <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
     </div>
 
-    <div>
+    <div class="square">
       <ul>
         <li>
           <b>{{ 'pokemonDetails.height' | translate }}: </b>{{ pokemon.heightInMeters }} m
@@ -27,15 +28,15 @@
     </div>
   </div>
 
-  <app-pokemon-type-labels [types]="pokemon.types"></app-pokemon-type-labels>
+  <div>
+    <p>{{ getPokemonDescription() }}</p>
 
-  <p>{{ getPokemonDescription() }}</p>
+    <app-pokemon-evolution-chain-layout></app-pokemon-evolution-chain-layout>
 
-  <app-pokemon-evolution-chain-layout></app-pokemon-evolution-chain-layout>
-
-  <p>
-    <b>{{ 'pokemonDetails.games' | translate }}: </b>{{ pokemon.gameNames.join(', ') }}
-  </p>
+    <p>
+      <b>{{ 'pokemonDetails.games' | translate }}: </b>{{ pokemon.gameNames.join(', ') }}
+    </p>
+  </div>
 
   <app-button (click)="goToPokemonCardListPage()">Go to card list</app-button>
 </div>

@@ -1,0 +1,39 @@
+h1 {
+  text-align: center;
+}
+
+.grid-container {
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.square {
+  text-align: center;
+  padding: auto;
+  width: 45%;
+  float: left;
+  text-align: center;
+  height: 25rem;
+  margin: 0 1rem 1rem 0;
+}
+
+img {
+  margin: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 4rem auto;
+}
+
+li {
+  padding: 0 0 0.3rem 0;
+  font-size: 1.4rem;
+}
+
+p {
+  font-size: 1.4rem;
+  text-align: left;
+  padding: auto 2rem;
+}
