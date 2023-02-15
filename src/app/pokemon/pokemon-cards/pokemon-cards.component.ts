@@ -1,6 +1,6 @@
 import Config from '../../config';
 import { AppRoutingModule } from '../../app-routing.module';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
 import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
 import { PokemonInterface } from '../shared/model/pokemon.model';
@@ -32,8 +32,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class PokemonCardsComponent implements OnInit {
-  @Input() searchText: string = '';
-
   pokemonsPerPage: number = 12;
   pageQuantity: number = 10;
   selectedIndex: number = 1;
@@ -56,8 +54,6 @@ export class PokemonCardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshData();
-
-    // console.log('>>', this.pokemonHttpClientService.setFilteredPokemonListByText('char'));
   }
 
   onChangeSelectedPaginatorIndex(index: number) {

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PokemonInterface } from '../model/pokemon.model';
+import Config from '../../../config';
+import { PokemonHttpClientService } from './pokemon-http-client.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,26 @@ import { PokemonInterface } from '../model/pokemon.model';
 export class PokemonFilteringService {
   filteredList: PokemonInterface[] = [];
 
-  constructor() {}
+  constructor(private pokemonHttpClientService: PokemonHttpClientService) {}
+
+  setFilteredPokemonListByText(text: string) {
+    this.clear();
+
+    if (text.trim().length > 2) {
+      const observables = [...Array(Config.MAX_NUMBER_OF_POKEMONS).keys()].map((n) => {
+        const id = n + 1;
+        return this.pokemonHttpClientService.getByNameOrId(id);
+      });
+
+      observables.map((observable) =>
+        observable.subscribe((pokemon) => {
+          if (pokemon.name.toLowerCase().includes(text.toLowerCase())) {
+            this.add(pokemon);
+          }
+        })
+      );
+    }
+  }
 
   add(pokemon: PokemonInterface) {
     this.filteredList.push(pokemon);

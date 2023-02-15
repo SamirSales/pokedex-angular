@@ -7,17 +7,12 @@ import { Injectable } from '@angular/core';
 import { Observable, forkJoin, throwError } from 'rxjs';
 import { PokemonInterface, PokemonModelMapper } from '../model/pokemon.model';
 import { map, catchError } from 'rxjs/operators';
-import { PokemonFilteringService } from './pokemon-filtering.service';
 
 @Injectable()
 export class PokemonHttpClientService {
   private BASE_URL = 'https://pokeapi.co/api/v2';
 
-  constructor(
-    private httpClient: HttpClient,
-    private httpErrorService: HttpErrorService,
-    private pokemonFilteringService: PokemonFilteringService
-  ) {}
+  constructor(private httpClient: HttpClient, private httpErrorService: HttpErrorService) {}
 
   getPageByNumberAndSize(pageNumber: number, pageSize: number): Observable<PokemonInterface[]> {
     const initialPokemonNumber = pageSize * (pageNumber - 1) + 1;
@@ -31,23 +26,6 @@ export class PokemonHttpClientService {
     }
 
     return forkJoin(promises);
-  }
-
-  setFilteredPokemonListByText(text: string) {
-    this.pokemonFilteringService.clear();
-
-    const observables = [...Array(Config.MAX_NUMBER_OF_POKEMONS).keys()].map((n) => {
-      const id = n + 1;
-      return this.getByNameOrId(id);
-    });
-
-    observables.map((observable) =>
-      observable.subscribe((pokemon) => {
-        if (pokemon.name.toLowerCase().includes(text.toLowerCase())) {
-          this.pokemonFilteringService.add(pokemon);
-        }
-      })
-    );
   }
 
   getByNameOrId(nameOrId: string | number): Observable<PokemonInterface> {

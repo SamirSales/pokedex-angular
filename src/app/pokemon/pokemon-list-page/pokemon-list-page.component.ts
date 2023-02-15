@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
 
 @Component({
   selector: 'app-pokemon-list-page',
@@ -8,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class PokemonListPageComponent implements OnInit {
   searchText: string = '';
 
-  constructor() {}
+  constructor(private pokemonFilteringService: PokemonFilteringService) {}
 
   ngOnInit(): void {}
+
+  onTextSearchChangeWithDelay(textSearch: string) {
+    this.pokemonFilteringService.setFilteredPokemonListByText(textSearch);
+  }
 }
