@@ -1,7 +1,5 @@
-<p *ngIf="searchText.trim() != ''">Searching {{ searchText }}...</p>
-
 <div class="container">
-  <div class="pokemon-card" [@cardState] (click)="onClickItem(pokemon)" *ngFor="let pokemon of pokemons">
+  <div class="pokemon-card" [@cardState] (click)="onClickItem(pokemon)" *ngFor="let pokemon of getPokemons()">
     <table>
       <tr>
         <td><img [src]="pokemon.imageURL" /></td>
@@ -21,6 +19,7 @@
   [pageQuantity]="getPageQuantity()"
   [selectedIndex]="selectedIndex"
   (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
+  *ngIf="shouldShowPaginator()"
 ></app-table-paginator>
 <br />
 <br />

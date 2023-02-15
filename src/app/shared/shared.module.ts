@@ -6,10 +6,11 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { ButtonComponent } from './button/button.component';
-import { DialogComponent } from '../shared/dialog/dialog.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { SearchTextFieldComponent } from './search-text-field/search-text-field.component';
 
 @NgModule({
-  declarations: [ButtonComponent, DialogComponent],
+  declarations: [ButtonComponent, DialogComponent, SearchTextFieldComponent],
   imports: [
     CommonModule,
     TranslateModule.forRoot({
@@ -20,7 +21,7 @@ import { DialogComponent } from '../shared/dialog/dialog.component';
       }
     })
   ],
-  exports: [ButtonComponent, DialogComponent]
+  exports: [ButtonComponent, DialogComponent, SearchTextFieldComponent]
 })
 export class SharedModule {}
 

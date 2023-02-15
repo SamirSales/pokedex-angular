@@ -2,6 +2,7 @@ import Config from '../../config';
 import { AppRoutingModule } from '../../app-routing.module';
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
+import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
 import { PokemonInterface } from '../shared/model/pokemon.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
@@ -47,10 +48,16 @@ export class PokemonCardsComponent implements OnInit {
 
   pokemons: PokemonInterface[] = [];
 
-  constructor(private appRoutingModule: AppRoutingModule, public PokemonHttpClientService: PokemonHttpClientService) {}
+  constructor(
+    private appRoutingModule: AppRoutingModule,
+    public pokemonHttpClientService: PokemonHttpClientService,
+    private pokemonFilteringService: PokemonFilteringService
+  ) {}
 
   ngOnInit(): void {
     this.refreshData();
+
+    // console.log('>>', this.pokemonHttpClientService.setFilteredPokemonListByText('char'));
   }
 
   onChangeSelectedPaginatorIndex(index: number) {
@@ -63,7 +70,7 @@ export class PokemonCardsComponent implements OnInit {
   refreshData() {
     this.isLoading = true;
 
-    this.PokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
+    this.pokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
       next: (pokemons) => {
         this.pokemons = pokemons;
         this.isLoading = false;
@@ -80,5 +87,16 @@ export class PokemonCardsComponent implements OnInit {
 
   onClickItem(pokemon: PokemonInterface) {
     this.appRoutingModule.goToPokemonDetailsPageById(pokemon.id);
+  }
+
+  getPokemons() {
+    if (this.pokemonFilteringService.isThereFilteredPokemon()) {
+      return this.pokemonFilteringService.getList();
+    }
+    return this.pokemons;
+  }
+
+  shouldShowPaginator() {
+    return !this.pokemonFilteringService.isThereFilteredPokemon();
   }
 }

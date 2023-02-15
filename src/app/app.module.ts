@@ -17,7 +17,6 @@ import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { DropdownIdiomsComponent } from './shared/dropdown/dropdown-idioms/dropdown-idioms.component';
 import { ErrorDialogComponent } from './shared/dialog/error-dialog/error-dialog.component';
 import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
-import { SearchTextFieldComponent } from './shared/search-text-field/search-text-field.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     DropdownIdiomsComponent,
     ErrorDialogComponent,
     NotFoundPageComponent,
-    SearchTextFieldComponent,
     ToolbarComponent
   ],
   imports: [
