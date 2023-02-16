@@ -2,5 +2,3 @@
   <input type="checkbox" [checked]="type.value" name="{{ type.name }}" (input)="onClickCheckbox(type)" />
   {{ type.name }}
 </div>
-
-<div *ngFor="let type of selected()">:: {{ type.name }}</div>

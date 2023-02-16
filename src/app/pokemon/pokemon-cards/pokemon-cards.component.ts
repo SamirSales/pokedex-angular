@@ -86,13 +86,13 @@ export class PokemonCardsComponent implements OnInit {
   }
 
   getPokemons() {
-    if (this.pokemonFilteringService.isThereFilteredPokemon()) {
+    if (this.pokemonFilteringService.isThereFiltering()) {
       return this.pokemonFilteringService.getList();
     }
     return this.pokemons;
   }
 
   shouldShowPaginator() {
-    return !this.pokemonFilteringService.isThereFilteredPokemon();
+    return !this.pokemonFilteringService.isThereFiltering();
   }
 }

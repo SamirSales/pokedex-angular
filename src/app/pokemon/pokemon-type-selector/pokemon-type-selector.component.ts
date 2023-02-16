@@ -30,10 +30,6 @@ export class PokemonTypeSelectorComponent {
 
   constructor(private pokemonFilteringService: PokemonFilteringService) {}
 
-  selected() {
-    return this.pokemonTypes.filter((a) => a.value);
-  }
-
   onClickCheckbox(type: { name: string; value: boolean }) {
     type.value = !type.value;
     const selectedTypeNames = this.pokemonTypes.filter((o) => o.value).map((o) => o.name);
