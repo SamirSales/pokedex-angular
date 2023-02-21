@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './shared/store/reducers';
+
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { PokemonCardsComponent } from './pokemon-cards/pokemon-cards.component';
 import { PokemonDetailDialogComponent } from './pokemon-detail-dialog/pokemon-detail-dialog.component';
@@ -40,6 +43,7 @@ import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-ty
   imports: [
     CommonModule,
     SharedModule,
+    StoreModule.forRoot(reducers),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
