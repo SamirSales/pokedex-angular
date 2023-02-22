@@ -3,3 +3,10 @@
 </div>
 <app-pokemon-cards></app-pokemon-cards>
 <app-pokemon-type-selector></app-pokemon-type-selector>
+
+<button (click)="dispatchAction()">Test</button>
+
+<div *ngIf="pokemonListStateObservable | async as p">
+  <p>Quantity: {{ p.pokemons.length }}</p>
+  <p>Loading: {{ p.isLoading }}</p>
+</div>

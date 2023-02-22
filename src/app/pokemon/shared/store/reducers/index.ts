@@ -1,12 +1,12 @@
-import { PokemonListState, pokemonListReducer } from './pokemonList.reducer';
+import { PokemonPageState, pokemonPageReducer } from './pokemonPage.reducer';
 import { ActionReducerMap } from '@ngrx/store';
 
 export const rootReducer = {};
 
-export interface AppState {
-  pokemons: PokemonListState;
+export interface PokemonPageReducerState {
+  pokemonPage: PokemonPageState;
 }
 
-export const reducers: ActionReducerMap<AppState, any> = {
-  pokemons: pokemonListReducer
+export const reducers: ActionReducerMap<PokemonPageReducerState, any> = {
+  pokemonPage: pokemonPageReducer
 };

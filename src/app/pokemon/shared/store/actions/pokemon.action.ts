@@ -3,19 +3,24 @@ import { PokemonInterface } from '../../model/pokemon.model';
 
 export const PokemonActionType = {
   POKEMON_EDIT_LIST: 'POKEMON_EDIT_LIST',
-  EDIT_LIST2: 'EDIT_LIST2'
+  POKEMON_START_LOADING: 'POKEMON_START_LOADING',
+  POKEMON_STOP_LOADING: 'POKEMON_STOP_LOADING',
+  POKEMON_EDIT_INDEX_PAGE: 'POKEMON_EDIT_INDEX_PAGE',
+  POKEMON_EDIT_ITEMS_PER_PAGE: 'POKEMON_EDIT_ITEMS_PER_PAGE'
 };
 
-export class PokemonAction implements Action {
+export class PokemonListEditAction implements Action {
   readonly type = PokemonActionType.POKEMON_EDIT_LIST;
 
   constructor(public payload: PokemonInterface[]) {}
 }
 
-export class EditList2 implements Action {
-  readonly type = PokemonActionType.EDIT_LIST2;
-
-  constructor(public payload: []) {}
+export class PokemonStartLoadingAction implements Action {
+  readonly type = PokemonActionType.POKEMON_START_LOADING;
 }
 
-export type All = PokemonAction | EditList2;
+export class PokemonStopLoadingAction implements Action {
+  readonly type = PokemonActionType.POKEMON_STOP_LOADING;
+}
+
+export type All = PokemonListEditAction | PokemonStartLoadingAction | PokemonStopLoadingAction;
