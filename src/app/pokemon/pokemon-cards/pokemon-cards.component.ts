@@ -1,9 +1,14 @@
 import Config from '../../config';
+import PokemonPageStoreHandler from '../shared/store/PokemonPageStoreHandler';
 import { AppRoutingModule } from '../../app-routing.module';
 import { Component, OnInit } from '@angular/core';
-import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
+import { Observable } from 'rxjs';
 import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
+import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
 import { PokemonInterface } from '../shared/model/pokemon.model';
+import { PokemonPageReducerState } from '../shared/store/reducers';
+import { PokemonPageState } from '../shared/store/reducers/pokemonPage.reducer';
+import { Store } from '@ngrx/store';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -33,9 +38,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class PokemonCardsComponent implements OnInit {
   pokemonsPerPage: number = 12;
-  pageQuantity: number = 10;
-  selectedIndex: number = 1;
-  isLoading: boolean = false;
+  // selectedIndex: number = 1;
+
+  pokemonListStateObservable: Observable<PokemonPageState>;
+  pokemonPageStoreHandler: PokemonPageStoreHandler;
 
   headers = [
     { text: 'Number', input: 'id' },
@@ -49,30 +55,36 @@ export class PokemonCardsComponent implements OnInit {
   constructor(
     private appRoutingModule: AppRoutingModule,
     public pokemonHttpClientService: PokemonHttpClientService,
-    private pokemonFilteringService: PokemonFilteringService
-  ) {}
-
-  ngOnInit(): void {
-    this.refreshData();
+    private pokemonFilteringService: PokemonFilteringService,
+    private store: Store<PokemonPageReducerState>
+  ) {
+    this.pokemonListStateObservable = this.store.select('pokemonPage');
+    this.pokemonPageStoreHandler = new PokemonPageStoreHandler(this.store);
   }
 
-  onChangeSelectedPaginatorIndex(index: number) {
-    if (this.selectedIndex != index) {
-      this.selectedIndex = index;
-      this.refreshData();
+  ngOnInit(): void {}
+
+  async onChangeSelectedPaginatorIndex(index: number) {
+    const selectedIndex = await this.pokemonPageStoreHandler.getIndexPage();
+
+    if (selectedIndex != index) {
+      this.pokemonPageStoreHandler.setIndexPage(index);
+      this.refreshPokemonList();
     }
   }
 
-  refreshData() {
-    this.isLoading = true;
+  async refreshPokemonList() {
+    this.pokemonPageStoreHandler.startLoadingFlag();
+    const selectedIndex = await this.pokemonPageStoreHandler.getIndexPage();
+    this.pokemonsPerPage = await this.pokemonPageStoreHandler.getItemsPerPage();
 
-    this.pokemonHttpClientService.getPageByNumberAndSize(this.selectedIndex, this.pokemonsPerPage).subscribe({
+    this.pokemonHttpClientService.getPageByNumberAndSize(selectedIndex, this.pokemonsPerPage).subscribe({
       next: (pokemons) => {
-        this.pokemons = pokemons;
-        this.isLoading = false;
+        this.pokemonPageStoreHandler.setPokemonList(pokemons);
+        this.pokemonPageStoreHandler.stopLoadingFlag();
       },
       error: () => {
-        this.isLoading = false;
+        this.pokemonPageStoreHandler.stopLoadingFlag();
       }
     });
   }

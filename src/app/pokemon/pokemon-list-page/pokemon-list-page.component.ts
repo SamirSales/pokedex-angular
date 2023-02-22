@@ -1,16 +1,11 @@
+import PokemonPageStoreHandler from '../shared/store/PokemonPageStoreHandler';
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { firstValueFrom, Observable } from 'rxjs';
-import { PokemonInterface, PokemonModelMapper } from '../shared/model/pokemon.model';
+import { Observable } from 'rxjs';
 import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
-import { PokemonListEditAction, PokemonStartLoadingAction, PokemonStopLoadingAction } from '../shared/store/actions/pokemon.action';
+import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
 import { PokemonPageReducerState } from '../shared/store/reducers';
 import { PokemonPageState } from '../shared/store/reducers/pokemonPage.reducer';
-import { PokemonHttpClientService } from '../shared/service/pokemon-http-client.service';
-import PokemonPageStoreHandler from '../shared/store/PokemonPageStoreHandler';
-
-import { take, filter } from 'rxjs/operators';
-import { select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-pokemon-list-page',
@@ -54,9 +49,5 @@ export class PokemonListPageComponent implements OnInit {
 
   onTextSearchChangeWithDelay(textSearch: string) {
     this.pokemonFilteringService.setFilteredPokemonListByText(textSearch);
-  }
-
-  dispatchAction() {
-    this.store.dispatch(new PokemonListEditAction([PokemonModelMapper.getEmpty()]));
   }
 }

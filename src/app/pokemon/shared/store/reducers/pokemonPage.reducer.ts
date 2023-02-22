@@ -16,11 +16,12 @@ const initialState: PokemonPageState = {
 };
 
 export const pokemonPageReducer = (state: PokemonPageState = initialState, action: PokemonListEditAction) => {
-  console.log(action.type, state);
-
   switch (action.type) {
     case PokemonActionType.POKEMON_EDIT_LIST:
       return newState(state, { pokemons: action.payload });
+
+    case PokemonActionType.POKEMON_EDIT_INDEX_PAGE:
+      return newState(state, { indexPage: action.payload });
 
     case PokemonActionType.POKEMON_START_LOADING:
       return newState(state, { isLoading: true });

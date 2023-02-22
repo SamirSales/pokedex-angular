@@ -1,27 +1,29 @@
-<div class="container">
-  <div class="pokemon-card" [@cardState] (click)="onClickItem(pokemon)" *ngFor="let pokemon of getPokemons()">
-    <table>
-      <tr>
-        <td><img [src]="pokemon.imageURL" /></td>
-        <td>
-          <p class="card-title">
-            <span style="color: #c0c0c0">#{{ pokemon.id }}</span> {{ pokemon.name }}
-          </p>
-          <app-pokemon-type-labels [types]="pokemon.types" [outlined]="true"></app-pokemon-type-labels>
-        </td>
-      </tr>
-    </table>
+<div *ngIf="pokemonListStateObservable | async as pState">
+  <div class="container">
+    <div class="pokemon-card" [@cardState] (click)="onClickItem(pokemon)" *ngFor="let pokemon of pState.pokemons">
+      <table>
+        <tr>
+          <td><img [src]="pokemon.imageURL" /></td>
+          <td>
+            <p class="card-title">
+              <span style="color: #c0c0c0">#{{ pokemon.id }}</span> {{ pokemon.name }}
+            </p>
+            <app-pokemon-type-labels [types]="pokemon.types" [outlined]="true"></app-pokemon-type-labels>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
+
+  <app-table-paginator
+    [disabled]="pState.isLoading"
+    [pageQuantity]="getPageQuantity()"
+    [selectedIndex]="pState.indexPage"
+    (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
+    *ngIf="shouldShowPaginator()"
+  ></app-table-paginator>
+  <br />
+  <br />
+
+  <app-loader *ngIf="pState.isLoading"></app-loader>
 </div>
-
-<app-table-paginator
-  [disabled]="isLoading"
-  [pageQuantity]="getPageQuantity()"
-  [selectedIndex]="selectedIndex"
-  (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
-  *ngIf="shouldShowPaginator()"
-></app-table-paginator>
-<br />
-<br />
-
-<app-loader *ngIf="isLoading"></app-loader>

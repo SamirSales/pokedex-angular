@@ -1,6 +1,11 @@
 import { Store } from '@ngrx/store';
 import { PokemonPageReducerState } from './reducers';
-import { PokemonStartLoadingAction, PokemonStopLoadingAction, PokemonListEditAction } from './actions/pokemon.action';
+import {
+  PokemonStartLoadingAction,
+  PokemonStopLoadingAction,
+  PokemonListEditAction,
+  PokemonIndexPageEditAction
+} from './actions/pokemon.action';
 import { PokemonInterface } from '../model/pokemon.model';
 import { PokemonPageState } from './reducers/pokemonPage.reducer';
 import { firstValueFrom, Observable } from 'rxjs';
@@ -20,6 +25,15 @@ export default class PokemonPageStoreHandler {
   async getItemsPerPage() {
     const currentState = firstValueFrom(this.pokemonListStateObservable);
     return (await currentState).itemsPerPage;
+  }
+
+  async isLoading() {
+    const currentState = firstValueFrom(this.pokemonListStateObservable);
+    return (await currentState).isLoading;
+  }
+
+  setIndexPage(indexPage: number) {
+    this.store.dispatch(new PokemonIndexPageEditAction(indexPage));
   }
 
   startLoadingFlag() {
