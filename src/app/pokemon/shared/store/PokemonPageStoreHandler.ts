@@ -1,4 +1,4 @@
-import { Store } from '@ngrx/store';
+import { Store, createSelector, createFeatureSelector } from '@ngrx/store';
 import { PokemonPageReducerState } from './reducers';
 import {
   PokemonStartLoadingAction,
@@ -20,6 +20,18 @@ export default class PokemonPageStoreHandler {
   async getIndexPage() {
     const currentState = firstValueFrom(this.pokemonListStateObservable);
     return (await currentState).indexPage;
+  }
+
+  getIndexPage2(): Observable<number> {
+    const pokemonModuleState = createFeatureSelector<PokemonPageReducerState>('pokemonPage');
+
+    return this.store.select(
+      createSelector(pokemonModuleState, (state) => {
+        const stateCopy = { indexPage: 1, ...state };
+        console.log('stateCopy', stateCopy);
+        return stateCopy.indexPage;
+      })
+    );
   }
 
   async getItemsPerPage() {

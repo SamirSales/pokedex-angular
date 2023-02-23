@@ -11,7 +11,7 @@ export interface PokemonPageState {
 const initialState: PokemonPageState = {
   pokemons: [],
   isLoading: false,
-  indexPage: 1,
+  indexPage: 3,
   itemsPerPage: 12
 };
 

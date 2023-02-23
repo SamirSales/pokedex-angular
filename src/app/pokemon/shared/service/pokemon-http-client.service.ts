@@ -18,7 +18,7 @@ export class PokemonHttpClientService {
     const initialPokemonNumber = pageSize * (pageNumber - 1) + 1;
     const promises = [];
 
-    console.log('chamado ========');
+    console.log('getPageByNumberAndSize', pageSize);
 
     for (let i = 0; i < pageSize; i++) {
       if (initialPokemonNumber + i <= Config.MAX_NUMBER_OF_POKEMONS) {

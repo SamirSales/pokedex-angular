@@ -32,6 +32,7 @@ export class PokemonListPageComponent implements OnInit {
   }
 
   async refreshData() {
+    console.log('start...');
     this.pokemonPageStoreHandler.startLoadingFlag();
     const selectedIndex = await this.pokemonPageStoreHandler.getIndexPage();
     const pokemonsPerPage = await this.pokemonPageStoreHandler.getItemsPerPage();

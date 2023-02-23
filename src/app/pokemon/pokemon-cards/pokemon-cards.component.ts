@@ -78,14 +78,14 @@ export class PokemonCardsComponent implements OnInit {
     const selectedIndex = await this.pokemonPageStoreHandler.getIndexPage();
     this.pokemonsPerPage = await this.pokemonPageStoreHandler.getItemsPerPage();
 
-    this.pokemonHttpClientService.getPageByNumberAndSize(selectedIndex, this.pokemonsPerPage).subscribe({
-      next: (pokemons) => {
-        this.pokemonPageStoreHandler.setPokemonList(pokemons);
-      },
-      error: () => {
-        this.pokemonPageStoreHandler.stopLoadingFlag(); //TODO: should I remove this line?
-      }
-    });
+    // this.pokemonHttpClientService.getPageByNumberAndSize(selectedIndex, this.pokemonsPerPage).subscribe({
+    //   next: (pokemons) => {
+    //     this.pokemonPageStoreHandler.setPokemonList(pokemons);
+    //   },
+    //   error: () => {
+    //     this.pokemonPageStoreHandler.stopLoadingFlag();
+    //   }
+    // });
   }
 
   getPageQuantity() {
