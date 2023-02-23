@@ -1,5 +1,5 @@
 import { PokemonInterface } from '../../model/pokemon.model';
-import { PokemonListEditAction, PokemonActionType } from '../actions/pokemon.action';
+import { PokemonActionType, PokemonActions } from '../actions/pokemon.action';
 
 export interface PokemonPageState {
   pokemons: PokemonInterface[];
@@ -15,7 +15,7 @@ const initialState: PokemonPageState = {
   itemsPerPage: 12
 };
 
-export const pokemonPageReducer = (state: PokemonPageState = initialState, action: PokemonListEditAction) => {
+export const pokemonPageReducer = (state: PokemonPageState = initialState, action: PokemonActions) => {
   switch (action.type) {
     case PokemonActionType.POKEMON_EDIT_LIST:
       return newState(state, { pokemons: action.payload });

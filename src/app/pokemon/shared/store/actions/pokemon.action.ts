@@ -29,4 +29,4 @@ export class PokemonIndexPageEditAction implements Action {
   constructor(public payload: number) {}
 }
 
-export type All = PokemonListEditAction | PokemonStartLoadingAction | PokemonStopLoadingAction;
+export type PokemonActions = PokemonListEditAction | PokemonIndexPageEditAction;

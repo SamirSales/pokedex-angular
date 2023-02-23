@@ -81,10 +81,9 @@ export class PokemonCardsComponent implements OnInit {
     this.pokemonHttpClientService.getPageByNumberAndSize(selectedIndex, this.pokemonsPerPage).subscribe({
       next: (pokemons) => {
         this.pokemonPageStoreHandler.setPokemonList(pokemons);
-        this.pokemonPageStoreHandler.stopLoadingFlag();
       },
       error: () => {
-        this.pokemonPageStoreHandler.stopLoadingFlag();
+        this.pokemonPageStoreHandler.stopLoadingFlag(); //TODO: should I remove this line?
       }
     });
   }
