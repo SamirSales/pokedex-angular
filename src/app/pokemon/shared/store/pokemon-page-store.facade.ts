@@ -10,7 +10,10 @@ import { PokemonInterface } from '../model/pokemon.model';
 import { PokemonPageState } from './reducers/pokemonPage.reducer';
 import { firstValueFrom, Observable } from 'rxjs';
 
-export default class PokemonPageStoreHandler {
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export default class PokemonPageStoreFacade {
   pokemonListStateObservable: Observable<PokemonPageState>;
 
   constructor(private store: Store<PokemonPageReducerState>) {
@@ -22,13 +25,12 @@ export default class PokemonPageStoreHandler {
     return (await currentState).indexPage;
   }
 
-  getIndexPage2(): Observable<number> {
+  getIndexPageObservable(): Observable<number> {
     const pokemonModuleState = createFeatureSelector<PokemonPageReducerState>('pokemonPage');
 
     return this.store.select(
       createSelector(pokemonModuleState, (state) => {
         const stateCopy = { indexPage: 1, ...state };
-        console.log('stateCopy', stateCopy);
         return stateCopy.indexPage;
       })
     );
@@ -37,6 +39,17 @@ export default class PokemonPageStoreHandler {
   async getItemsPerPage() {
     const currentState = firstValueFrom(this.pokemonListStateObservable);
     return (await currentState).itemsPerPage;
+  }
+
+  getItemsPerPageObservable(): Observable<number> {
+    const pokemonModuleState = createFeatureSelector<PokemonPageReducerState>('pokemonPage');
+
+    return this.store.select(
+      createSelector(pokemonModuleState, (state) => {
+        const stateCopy = { itemsPerPage: 12, ...state };
+        return stateCopy.itemsPerPage;
+      })
+    );
   }
 
   async isLoading() {

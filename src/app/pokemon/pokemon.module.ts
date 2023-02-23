@@ -27,6 +27,8 @@ import { PokemonHttpClientService } from './shared/service/pokemon-http-client.s
 import { PokemonDetailsPageComponent } from './pokemon-details-page/pokemon-details-page.component';
 import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-type-selector.component';
 
+import PokemonPageStoreFacade from './shared/store/pokemon-page-store.facade';
+
 @NgModule({
   declarations: [
     BackgroundColorByPokemonTypePipe,
@@ -55,7 +57,7 @@ import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-ty
       }
     })
   ],
-  providers: [PokemonHttpClientService]
+  providers: [PokemonHttpClientService, PokemonPageStoreFacade]
 })
 export class PokemonModule {}
 

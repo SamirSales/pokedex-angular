@@ -1,4 +1,4 @@
-import PokemonPageStoreHandler from '../shared/store/PokemonPageStoreHandler';
+import PokemonPageStoreFacade from '../shared/store/pokemon-page-store.facade';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
@@ -16,7 +16,7 @@ export class PokemonListPageComponent implements OnInit {
   searchText: string = '';
 
   pokemonListStateObservable: Observable<PokemonPageState>;
-  pokemonPageStoreHandler: PokemonPageStoreHandler;
+  pokemonPageStoreFacade: PokemonPageStoreFacade;
 
   constructor(
     private pokemonHttpClientService: PokemonHttpClientService,
@@ -24,7 +24,7 @@ export class PokemonListPageComponent implements OnInit {
     private store: Store<PokemonPageReducerState>
   ) {
     this.pokemonListStateObservable = this.store.select('pokemonPage');
-    this.pokemonPageStoreHandler = new PokemonPageStoreHandler(this.store);
+    this.pokemonPageStoreFacade = new PokemonPageStoreFacade(this.store);
   }
 
   ngOnInit(): void {
@@ -33,16 +33,16 @@ export class PokemonListPageComponent implements OnInit {
 
   async refreshData() {
     console.log('start...');
-    this.pokemonPageStoreHandler.startLoadingFlag();
-    const selectedIndex = await this.pokemonPageStoreHandler.getIndexPage();
-    const pokemonsPerPage = await this.pokemonPageStoreHandler.getItemsPerPage();
+    this.pokemonPageStoreFacade.startLoadingFlag();
+    const selectedIndex = await this.pokemonPageStoreFacade.getIndexPage();
+    const pokemonsPerPage = await this.pokemonPageStoreFacade.getItemsPerPage();
 
     this.pokemonHttpClientService.getPageByNumberAndSize(selectedIndex, pokemonsPerPage).subscribe({
       next: (pokemons) => {
-        this.pokemonPageStoreHandler.setPokemonList(pokemons);
+        this.pokemonPageStoreFacade.setPokemonList(pokemons);
       },
       error: () => {
-        this.pokemonPageStoreHandler.stopLoadingFlag(); //TODO: should I remove this line?
+        this.pokemonPageStoreFacade.stopLoadingFlag(); //TODO: should I remove this line?
       }
     });
   }

@@ -1,5 +1,5 @@
 import Config from '../../config';
-import PokemonPageStoreHandler from '../shared/store/PokemonPageStoreHandler';
+import PokemonPageStoreFacade from '../shared/store/pokemon-page-store.facade';
 import { AppRoutingModule } from '../../app-routing.module';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -41,7 +41,7 @@ export class PokemonCardsComponent implements OnInit {
   // selectedIndex: number = 1;
 
   pokemonListStateObservable: Observable<PokemonPageState>;
-  pokemonPageStoreHandler: PokemonPageStoreHandler;
+  pokemonPageStoreFacade: PokemonPageStoreFacade;
 
   headers = [
     { text: 'Number', input: 'id' },
@@ -59,31 +59,31 @@ export class PokemonCardsComponent implements OnInit {
     private store: Store<PokemonPageReducerState>
   ) {
     this.pokemonListStateObservable = this.store.select('pokemonPage');
-    this.pokemonPageStoreHandler = new PokemonPageStoreHandler(this.store);
+    this.pokemonPageStoreFacade = new PokemonPageStoreFacade(this.store);
   }
 
   ngOnInit(): void {}
 
   async onChangeSelectedPaginatorIndex(index: number) {
-    const selectedIndex = await this.pokemonPageStoreHandler.getIndexPage();
+    const selectedIndex = await this.pokemonPageStoreFacade.getIndexPage();
 
     if (selectedIndex != index) {
-      this.pokemonPageStoreHandler.setIndexPage(index);
+      this.pokemonPageStoreFacade.setIndexPage(index);
       this.refreshPokemonList();
     }
   }
 
   async refreshPokemonList() {
-    this.pokemonPageStoreHandler.startLoadingFlag();
-    const selectedIndex = await this.pokemonPageStoreHandler.getIndexPage();
-    this.pokemonsPerPage = await this.pokemonPageStoreHandler.getItemsPerPage();
+    this.pokemonPageStoreFacade.startLoadingFlag();
+    const selectedIndex = await this.pokemonPageStoreFacade.getIndexPage();
+    this.pokemonsPerPage = await this.pokemonPageStoreFacade.getItemsPerPage();
 
     // this.pokemonHttpClientService.getPageByNumberAndSize(selectedIndex, this.pokemonsPerPage).subscribe({
     //   next: (pokemons) => {
-    //     this.pokemonPageStoreHandler.setPokemonList(pokemons);
+    //     this.pokemonPageStoreFacade.setPokemonList(pokemons);
     //   },
     //   error: () => {
-    //     this.pokemonPageStoreHandler.stopLoadingFlag();
+    //     this.pokemonPageStoreFacade.stopLoadingFlag();
     //   }
     // });
   }

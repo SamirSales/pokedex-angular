@@ -11,14 +11,14 @@ export interface PokemonPageState {
 const initialState: PokemonPageState = {
   pokemons: [],
   isLoading: false,
-  indexPage: 3,
+  indexPage: 1,
   itemsPerPage: 12
 };
 
 export const pokemonPageReducer = (state: PokemonPageState = initialState, action: PokemonActions) => {
   switch (action.type) {
     case PokemonActionType.POKEMON_EDIT_LIST:
-      return newState(state, { pokemons: action.payload });
+      return newState(state, { pokemons: action.payload, isLoading: false });
 
     case PokemonActionType.POKEMON_EDIT_INDEX_PAGE:
       return newState(state, { indexPage: action.payload });
