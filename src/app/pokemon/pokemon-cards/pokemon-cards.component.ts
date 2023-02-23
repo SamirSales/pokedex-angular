@@ -38,10 +38,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class PokemonCardsComponent implements OnInit {
   pokemonsPerPage: number = 12;
-  // selectedIndex: number = 1;
 
   pokemonListStateObservable: Observable<PokemonPageState>;
-  pokemonPageStoreFacade: PokemonPageStoreFacade;
 
   headers = [
     { text: 'Number', input: 'id' },
@@ -56,10 +54,10 @@ export class PokemonCardsComponent implements OnInit {
     private appRoutingModule: AppRoutingModule,
     public pokemonHttpClientService: PokemonHttpClientService,
     private pokemonFilteringService: PokemonFilteringService,
-    private store: Store<PokemonPageReducerState>
+    private store: Store<PokemonPageReducerState>,
+    private pokemonPageStoreFacade: PokemonPageStoreFacade
   ) {
     this.pokemonListStateObservable = this.store.select('pokemonPage');
-    this.pokemonPageStoreFacade = new PokemonPageStoreFacade(this.store);
   }
 
   ngOnInit(): void {}
@@ -74,18 +72,8 @@ export class PokemonCardsComponent implements OnInit {
   }
 
   async refreshPokemonList() {
-    this.pokemonPageStoreFacade.startLoadingFlag();
-    const selectedIndex = await this.pokemonPageStoreFacade.getIndexPage();
+    this.pokemonPageStoreFacade.load();
     this.pokemonsPerPage = await this.pokemonPageStoreFacade.getItemsPerPage();
-
-    // this.pokemonHttpClientService.getPageByNumberAndSize(selectedIndex, this.pokemonsPerPage).subscribe({
-    //   next: (pokemons) => {
-    //     this.pokemonPageStoreFacade.setPokemonList(pokemons);
-    //   },
-    //   error: () => {
-    //     this.pokemonPageStoreFacade.stopLoadingFlag();
-    //   }
-    // });
   }
 
   getPageQuantity() {

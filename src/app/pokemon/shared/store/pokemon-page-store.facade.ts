@@ -1,11 +1,6 @@
 import { Store, createSelector, createFeatureSelector } from '@ngrx/store';
 import { PokemonPageReducerState } from './reducers';
-import {
-  PokemonStartLoadingAction,
-  PokemonStopLoadingAction,
-  PokemonListEditAction,
-  PokemonIndexPageEditAction
-} from './actions/pokemon.action';
+import { PokemonStartLoadingAction, PokemonListEditAction, PokemonIndexPageEditAction } from './actions/pokemon.action';
 import { PokemonInterface } from '../model/pokemon.model';
 import { PokemonPageState } from './reducers/pokemonPage.reducer';
 import { firstValueFrom, Observable } from 'rxjs';
@@ -61,12 +56,8 @@ export default class PokemonPageStoreFacade {
     this.store.dispatch(new PokemonIndexPageEditAction(indexPage));
   }
 
-  startLoadingFlag() {
+  load() {
     this.store.dispatch(new PokemonStartLoadingAction());
-  }
-
-  stopLoadingFlag() {
-    this.store.dispatch(new PokemonStopLoadingAction());
   }
 
   setPokemonList(pokemons: PokemonInterface[]) {
