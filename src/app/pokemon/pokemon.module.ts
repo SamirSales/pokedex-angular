@@ -9,7 +9,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './shared/store/reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { LoadPokemonPageEffect } from './shared/store/effects/pokemon.effect';
+import { LoadPokemonPageEffect } from './shared/store/effects/pokemon-load-page.effect';
+import { LoadAllPokemonEffect } from './shared/store/effects/pokemon-load-all.effect';
 
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { PokemonCardsComponent } from './pokemon-cards/pokemon-cards.component';
@@ -48,7 +49,7 @@ import PokemonPageStoreFacade from './shared/store/pokemon-page-store.facade';
     CommonModule,
     SharedModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([LoadPokemonPageEffect]),
+    EffectsModule.forRoot([LoadPokemonPageEffect, LoadAllPokemonEffect]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

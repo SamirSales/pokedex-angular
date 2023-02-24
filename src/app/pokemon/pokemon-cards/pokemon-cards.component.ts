@@ -62,18 +62,16 @@ export class PokemonCardsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  getPokemonsFromPage() {
+    return this.pokemonPageStoreFacade.getListFromPage();
+  }
+
   async onChangeSelectedPaginatorIndex(index: number) {
     const selectedIndex = await this.pokemonPageStoreFacade.getIndexPage();
 
     if (selectedIndex != index) {
       this.pokemonPageStoreFacade.setIndexPage(index);
-      this.refreshPokemonList();
     }
-  }
-
-  async refreshPokemonList() {
-    this.pokemonPageStoreFacade.load();
-    this.pokemonsPerPage = await this.pokemonPageStoreFacade.getItemsPerPage();
   }
 
   getPageQuantity() {

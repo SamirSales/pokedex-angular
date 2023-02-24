@@ -50,4 +50,8 @@ export default class PokemonPageStoreFacade {
   setPokemonList(pokemons: PokemonInterface[]) {
     this.store.dispatch(new PokemonListEditAction(pokemons));
   }
+
+  getListFromPage() {
+    return this.store.select(selectors.selectItemsFromPage);
+  }
 }
