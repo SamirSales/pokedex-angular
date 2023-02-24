@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
+import PokemonPageStoreFacade from '../shared/store/pokemon-page-store.facade';
 
 @Component({
   selector: 'app-pokemon-type-selector',
@@ -28,11 +28,11 @@ export class PokemonTypeSelectorComponent {
     { name: 'fairy', value: false }
   ];
 
-  constructor(private pokemonFilteringService: PokemonFilteringService) {}
+  constructor(private pokemonPageStoreFacade: PokemonPageStoreFacade) {}
 
   onClickCheckbox(type: { name: string; value: boolean }) {
     type.value = !type.value;
     const selectedTypeNames = this.pokemonTypes.filter((o) => o.value).map((o) => o.name);
-    this.pokemonFilteringService.setTypes(selectedTypeNames);
+    this.pokemonPageStoreFacade.setTypes(selectedTypeNames);
   }
 }

@@ -6,19 +6,29 @@ export interface PokemonPageState {
   isLoading: boolean;
   indexPage: number;
   itemsPerPage: number;
+  textSearch: string;
+  types: string[];
 }
 
 const initialState: PokemonPageState = {
   pokemons: [],
   isLoading: false,
   indexPage: 1,
-  itemsPerPage: 12
+  itemsPerPage: 12,
+  textSearch: '',
+  types: []
 };
 
 export const pokemonPageReducer = (state: PokemonPageState = initialState, action: PokemonActions) => {
   switch (action.type) {
     case PokemonActionType.POKEMON_EDIT_LIST:
       return newState(state, { pokemons: action.payload, isLoading: false });
+
+    case PokemonActionType.POKEMON_SET_TEXT_SEARCH:
+      return newState(state, { textSearch: action.payload, indexPage: 1 });
+
+    case PokemonActionType.POKEMON_SET_TYPES:
+      return newState(state, { types: action.payload, indexPage: 1 });
 
     case PokemonActionType.POKEMON_EDIT_INDEX_PAGE:
       return newState(state, { indexPage: action.payload });

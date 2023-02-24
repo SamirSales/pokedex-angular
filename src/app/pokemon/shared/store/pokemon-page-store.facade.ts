@@ -1,6 +1,12 @@
 import { Store } from '@ngrx/store';
 import { PokemonPageReducerState } from './reducers';
-import { PokemonStartLoadingAction, PokemonListEditAction, PokemonIndexPageEditAction } from './actions/pokemon.action';
+import {
+  PokemonStartLoadingAction,
+  PokemonListEditAction,
+  PokemonIndexPageEditAction,
+  PokemonTextSearchEditAction,
+  PokemonTypesEditAction
+} from './actions/pokemon.action';
 import { PokemonInterface } from '../model/pokemon.model';
 import { PokemonPageState } from './reducers/pokemonPage.reducer';
 import { firstValueFrom, Observable } from 'rxjs';
@@ -41,6 +47,14 @@ export default class PokemonPageStoreFacade {
 
   setIndexPage(indexPage: number) {
     this.store.dispatch(new PokemonIndexPageEditAction(indexPage));
+  }
+
+  setTextSearch(textSearch: string) {
+    this.store.dispatch(new PokemonTextSearchEditAction(textSearch));
+  }
+
+  setTypes(types: string[]) {
+    this.store.dispatch(new PokemonTypesEditAction(types));
   }
 
   load() {

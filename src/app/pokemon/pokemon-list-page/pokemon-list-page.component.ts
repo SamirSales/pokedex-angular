@@ -1,6 +1,5 @@
 import PokemonPageStoreFacade from '../shared/store/pokemon-page-store.facade';
 import { Component, OnInit } from '@angular/core';
-import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
 
 @Component({
   selector: 'app-pokemon-list-page',
@@ -10,13 +9,13 @@ import { PokemonFilteringService } from '../shared/service/pokemon-filtering.ser
 export class PokemonListPageComponent implements OnInit {
   searchText: string = '';
 
-  constructor(private pokemonFilteringService: PokemonFilteringService, private pokemonPageStoreFacade: PokemonPageStoreFacade) {}
+  constructor(private pokemonPageStoreFacade: PokemonPageStoreFacade) {}
 
   ngOnInit(): void {
     this.pokemonPageStoreFacade.load();
   }
 
   onTextSearchChangeWithDelay(textSearch: string) {
-    this.pokemonFilteringService.setFilteredPokemonListByText(textSearch);
+    this.pokemonPageStoreFacade.setTextSearch(textSearch);
   }
 }
