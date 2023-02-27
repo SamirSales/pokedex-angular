@@ -13,6 +13,10 @@ export class PokemonListPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadIfNecessary();
+
+    this.getPokemonPageData().subscribe((data) => {
+      this.searchText = data.filtering.textSearch;
+    });
   }
 
   async loadIfNecessary() {
@@ -23,6 +27,10 @@ export class PokemonListPageComponent implements OnInit {
 
   async isPokemonsNotLoaded() {
     return !(await this.pokemonPageStoreFacade.isLoaded());
+  }
+
+  getPokemonPageData() {
+    return this.pokemonPageStoreFacade.getPageData();
   }
 
   onTextSearchChangeWithDelay(textSearch: string) {

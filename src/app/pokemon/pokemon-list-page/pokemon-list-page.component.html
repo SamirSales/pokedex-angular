@@ -1,5 +1,5 @@
 <div style="text-align: center">
-  <app-search-text-field (delayedChange)="onTextSearchChangeWithDelay($event)"></app-search-text-field>
+  <app-search-text-field [ngModel]="searchText" (delayedChange)="onTextSearchChangeWithDelay($event)"></app-search-text-field>
 </div>
 <app-pokemon-cards></app-pokemon-cards>
 <app-pokemon-type-selector></app-pokemon-type-selector>

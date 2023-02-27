@@ -30,6 +30,17 @@ export class PokemonTypeSelectorComponent {
 
   constructor(private pokemonPageStoreFacade: PokemonPageStoreFacade) {}
 
+  ngOnInit(): void {
+    this.resetPokemonTypes();
+  }
+
+  resetPokemonTypes() {
+    this.pokemonPageStoreFacade.getPageData().subscribe((data) => {
+      const selectedTypes = data.filtering.pokemonTypes;
+      this.pokemonTypes.forEach((pokemonType) => (pokemonType.value = selectedTypes.includes(pokemonType.name)));
+    });
+  }
+
   onClickCheckbox(type: { name: string; value: boolean }) {
     type.value = !type.value;
     const selectedTypeNames = this.pokemonTypes.filter((o) => o.value).map((o) => o.name);

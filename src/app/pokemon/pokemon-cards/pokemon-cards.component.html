@@ -1,5 +1,5 @@
-<div class="container" *ngIf="getPokemonsFromPage() | async as pokemons">
-  <div class="pokemon-card" [@cardState] (click)="onClickItem(pokemon)" *ngFor="let pokemon of pokemons">
+<div class="container" *ngIf="getPokemonPageData() | async as pageData">
+  <div class="pokemon-card" [@cardState] (click)="onClickItem(pokemon)" *ngFor="let pokemon of pageData.pokemons">
     <table>
       <tr>
         <td><img [src]="pokemon.imageURL" /></td>
@@ -14,16 +14,16 @@
   </div>
 </div>
 
-<div *ngIf="pokemonListStateObservable | async as pState">
+<div *ngIf="getPokemonPageData() | async as pageData">
   <app-table-paginator
-    [disabled]="pState.isLoading"
-    [pageQuantity]="pageQuantity"
-    [selectedIndex]="pState.indexPage"
+    [disabled]="pageData.isLoading"
+    [pageQuantity]="pageData.totalPages"
+    [selectedIndex]="pageData.indexPage"
     (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
     *ngIf="shouldShowPaginator()"
   ></app-table-paginator>
   <br />
   <br />
 
-  <app-loader *ngIf="pState.isLoading"></app-loader>
+  <app-loader *ngIf="pageData.isLoading"></app-loader>
 </div>

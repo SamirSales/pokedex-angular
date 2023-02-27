@@ -11,18 +11,35 @@ export const selectItemsPerPage = createSelector(selectFeature, (state: PokemonP
 
 export const selectItems = createSelector(selectFeature, (state: PokemonPageState) => state.pokemons);
 
-export const selectAllFilteredPokemons = createSelector(selectFeature, (state: PokemonPageState) => {
-  return getFilteredPokemonByState(state);
-});
+export interface PokemonPageData {
+  pokemons: PokemonInterface[];
+  indexPage: number;
+  itemsPerPage: number;
+  totalPages: number;
+  isLoading: boolean;
+  filtering: { textSearch: string; pokemonTypes: string[] };
+}
 
-export const selectItemsFromPage = createSelector(selectFeature, (state: PokemonPageState) => {
-  const pokemons = getFilteredPokemonByState(state);
+export const selectPageData = createSelector(selectFeature, (state: PokemonPageState) => {
+  const filteredPokemons = getFilteredPokemonByState(state);
   const indexPage = state.indexPage;
   const itemsPerPage = state.itemsPerPage;
+  const totalPages = Math.ceil(filteredPokemons.length / itemsPerPage);
 
   const trueIndex = (indexPage - 1) * itemsPerPage;
-  const result = pokemons.slice(trueIndex, trueIndex + itemsPerPage);
-  return result;
+  const pagePokemons = filteredPokemons.slice(trueIndex, trueIndex + itemsPerPage);
+
+  return {
+    pokemons: pagePokemons,
+    indexPage: indexPage,
+    itemsPerPage: itemsPerPage,
+    totalPages: totalPages,
+    isLoading: false,
+    filtering: {
+      textSearch: state.textSearch,
+      pokemonTypes: state.types
+    }
+  };
 });
 
 const getFilteredPokemonByState = (state: PokemonPageState) => {
