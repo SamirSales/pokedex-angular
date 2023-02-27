@@ -20,16 +20,16 @@ export class PokemonHttpClientService {
 
   getPageByNumberAndSize(pageNumber: number, pageSize: number): Observable<PokemonInterface[]> {
     const initialPokemonNumber = pageSize * (pageNumber - 1) + 1;
-    const promises = [];
+    const observables = [];
 
     for (let i = 0; i < pageSize; i++) {
       if (initialPokemonNumber + i <= Config.MAX_NUMBER_OF_POKEMONS) {
-        const promise = this.getByNameOrId(initialPokemonNumber + i);
-        promises.push(promise);
+        const observable = this.getByNameOrId(initialPokemonNumber + i);
+        observables.push(observable);
       }
     }
 
-    return forkJoin(promises);
+    return forkJoin(observables);
   }
 
   getByNameOrId(nameOrId: string | number): Observable<PokemonInterface> {
