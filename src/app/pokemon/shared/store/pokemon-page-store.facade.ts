@@ -65,6 +65,12 @@ export default class PokemonPageStoreFacade {
     this.store.dispatch(new PokemonListEditAction(pokemons));
   }
 
+  async isLoaded() {
+    const promiseList = firstValueFrom(this.getListFromPage());
+    const pokemons = await promiseList;
+    return pokemons.length > 0;
+  }
+
   getListFromPage() {
     return this.store.select(selectors.selectItemsFromPage);
   }

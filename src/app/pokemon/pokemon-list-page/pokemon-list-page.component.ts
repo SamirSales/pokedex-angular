@@ -12,7 +12,17 @@ export class PokemonListPageComponent implements OnInit {
   constructor(private pokemonPageStoreFacade: PokemonPageStoreFacade) {}
 
   ngOnInit(): void {
-    this.pokemonPageStoreFacade.load();
+    this.loadIfNecessary();
+  }
+
+  async loadIfNecessary() {
+    if (await this.isPokemonsNotLoaded()) {
+      this.pokemonPageStoreFacade.load();
+    }
+  }
+
+  async isPokemonsNotLoaded() {
+    return !(await this.pokemonPageStoreFacade.isLoaded());
   }
 
   onTextSearchChangeWithDelay(textSearch: string) {
