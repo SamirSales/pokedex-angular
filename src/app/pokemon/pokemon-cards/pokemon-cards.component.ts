@@ -49,6 +49,7 @@ export class PokemonCardsComponent implements OnInit {
   ];
 
   pokemons: PokemonInterface[] = [];
+  pageQuantity: number = Math.ceil(Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage);
 
   constructor(
     private appRoutingModule: AppRoutingModule,
@@ -58,6 +59,10 @@ export class PokemonCardsComponent implements OnInit {
     private pokemonPageStoreFacade: PokemonPageStoreFacade
   ) {
     this.pokemonListStateObservable = this.store.select('pokemonPage');
+  }
+
+  ngDoCheck() {
+    this.refreshPageQuantity();
   }
 
   ngOnInit(): void {}
@@ -74,8 +79,14 @@ export class PokemonCardsComponent implements OnInit {
     }
   }
 
-  getPageQuantity() {
-    return Math.ceil(Config.MAX_NUMBER_OF_POKEMONS / this.pokemonsPerPage);
+  refreshPageQuantity() {
+    this.pokemonPageStoreFacade.getTotalPokemonsQuantityObs().subscribe((totalPokemons) => {
+      const newPageQuantity = Math.ceil(totalPokemons / this.pokemonsPerPage);
+
+      if (newPageQuantity != this.pageQuantity) {
+        this.pageQuantity = newPageQuantity;
+      }
+    });
   }
 
   onClickItem(pokemon: PokemonInterface) {

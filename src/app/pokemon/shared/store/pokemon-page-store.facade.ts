@@ -9,7 +9,7 @@ import {
 } from './actions/pokemon.action';
 import { PokemonInterface } from '../model/pokemon.model';
 import { PokemonPageState } from './reducers/pokemonPage.reducer';
-import { firstValueFrom, Observable } from 'rxjs';
+import { firstValueFrom, Observable, map } from 'rxjs';
 import * as selectors from './selectors/pokemon.selector';
 
 import { Injectable } from '@angular/core';
@@ -73,5 +73,9 @@ export default class PokemonPageStoreFacade {
 
   getListFromPage() {
     return this.store.select(selectors.selectItemsFromPage);
+  }
+
+  getTotalPokemonsQuantityObs() {
+    return this.store.select(selectors.selectAllFilteredPokemons).pipe(map((o) => o.length));
   }
 }

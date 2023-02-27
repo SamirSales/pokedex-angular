@@ -11,6 +11,10 @@ export const selectItemsPerPage = createSelector(selectFeature, (state: PokemonP
 
 export const selectItems = createSelector(selectFeature, (state: PokemonPageState) => state.pokemons);
 
+export const selectAllFilteredPokemons = createSelector(selectFeature, (state: PokemonPageState) => {
+  return getFilteredPokemonByState(state);
+});
+
 export const selectItemsFromPage = createSelector(selectFeature, (state: PokemonPageState) => {
   const pokemons = getFilteredPokemonByState(state);
   const indexPage = state.indexPage;

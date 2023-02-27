@@ -17,7 +17,7 @@
 <div *ngIf="pokemonListStateObservable | async as pState">
   <app-table-paginator
     [disabled]="pState.isLoading"
-    [pageQuantity]="getPageQuantity()"
+    [pageQuantity]="pageQuantity"
     [selectedIndex]="pState.indexPage"
     (changeSelectedIndex)="onChangeSelectedPaginatorIndex($event)"
     *ngIf="shouldShowPaginator()"
