@@ -19,6 +19,7 @@ import { DropdownIdiomsComponent } from './shared/dropdown/dropdown-idioms/dropd
 import { ErrorDialogComponent } from './shared/dialog/error-dialog/error-dialog.component';
 import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     DropdownIdiomsComponent,
     ErrorDialogComponent,
     NotFoundPageComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    StepperComponent
   ],
   imports: [
     PokemonModule,
