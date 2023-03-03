@@ -8,7 +8,7 @@ import {
   PokemonTypesEditAction
 } from './actions/pokemon.action';
 import { PokemonInterface } from '../model/pokemon.model';
-import { PokemonPageState } from './reducers/pokemonPage.reducer';
+import { PokemonPageState } from './reducers/pokemon-page.reducer';
 import { firstValueFrom, Observable } from 'rxjs';
 import * as selectors from './selectors/pokemon.selector';
 
@@ -58,7 +58,7 @@ export default class PokemonPageStoreFacade {
   }
 
   load() {
-    this.store.dispatch(new PokemonStartLoadingAction());
+    this.store.dispatch(new PokemonStartLoadingAction(null));
   }
 
   setPokemonList(pokemons: PokemonInterface[]) {

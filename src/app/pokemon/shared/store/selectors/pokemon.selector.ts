@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { PokemonPageReducerState } from '../reducers';
-import { PokemonPageState } from '../reducers/pokemonPage.reducer';
+import { PokemonPageState } from '../reducers/pokemon-page.reducer';
 import { PokemonInterface } from '../../model/pokemon.model';
 
 const selectFeature = (state: PokemonPageReducerState) => state.pokemonPage;

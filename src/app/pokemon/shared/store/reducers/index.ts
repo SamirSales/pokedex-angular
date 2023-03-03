@@ -1,4 +1,4 @@
-import { PokemonPageState, pokemonPageReducer } from './pokemonPage.reducer';
+import { PokemonPageState, pokemonPageReducer } from './pokemon-page.reducer';
 import { ActionReducerMap } from '@ngrx/store';
 
 export const rootReducer = {};

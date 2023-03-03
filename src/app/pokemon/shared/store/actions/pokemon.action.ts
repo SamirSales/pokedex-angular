@@ -31,10 +31,14 @@ export class PokemonTypesEditAction implements Action {
 
 export class PokemonStartLoadingAction implements Action {
   readonly type = PokemonActionType.POKEMON_START_LOADING;
+
+  constructor(public payload: null) {}
 }
 
 export class PokemonStopLoadingAction implements Action {
   readonly type = PokemonActionType.POKEMON_STOP_LOADING;
+
+  constructor(public payload: null) {}
 }
 
 export class PokemonIndexPageEditAction implements Action {
@@ -43,4 +47,10 @@ export class PokemonIndexPageEditAction implements Action {
   constructor(public payload: number) {}
 }
 
-export type PokemonActions = PokemonListEditAction | PokemonIndexPageEditAction;
+export type PokemonActions =
+  | PokemonStopLoadingAction
+  | PokemonStartLoadingAction
+  | PokemonTypesEditAction
+  | PokemonTextSearchEditAction
+  | PokemonListEditAction
+  | PokemonIndexPageEditAction;
