@@ -21,8 +21,8 @@ import { PokemonListPageComponent } from './pokemon-list-page/pokemon-list-page.
 import { PokemonTypeLabelsComponent } from './pokemon-type-labels/pokemon-type-labels.component';
 import { TablePaginatorComponent } from '../shared/table-paginator/table-paginator.component';
 
-import { BackgroundColorByPokemonTypePipe } from './shared/pipe/background-color-by-pokemon-type.pipe';
-import { TextColorByPokemonTypePipe } from './shared/pipe/text-color-by-pokemon-type.pipe';
+import { BackgroundColorByPokemonTypePipe } from './shared/pipe/background-color-by-pokemon-type/background-color-by-pokemon-type.pipe';
+import { TextColorByPokemonTypePipe } from './shared/pipe/text-color-by-pokemon-type/text-color-by-pokemon-type.pipe';
 
 import { PokemonHttpClientService } from './shared/service/pokemon-http-client/pokemon-http-client.service';
 import { PokemonDetailsPageComponent } from './pokemon-details-page/pokemon-details-page.component';

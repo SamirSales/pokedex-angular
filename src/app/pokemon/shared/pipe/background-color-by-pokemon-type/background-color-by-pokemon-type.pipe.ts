@@ -1,4 +1,4 @@
-import PokemonTypeColorHandler from '../PokemonTypeColorHandler';
+import PokemonTypeColorHandler from '../../PokemonTypeColorHandler';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
