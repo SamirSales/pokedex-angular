@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PokemonInterface } from '../model/pokemon.model';
 import Config from '../../../config';
-import { PokemonHttpClientService } from './pokemon-http-client.service';
+import { PokemonHttpClientService } from './pokemon-http-client/pokemon-http-client.service';
 
 @Injectable({
   providedIn: 'root'

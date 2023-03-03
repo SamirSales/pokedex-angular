@@ -2,7 +2,7 @@ import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { PokemonActionType } from '../actions/pokemon.action';
-import { PokemonHttpClientService } from '../../service/pokemon-http-client.service';
+import { PokemonHttpClientService } from '../../service/pokemon-http-client/pokemon-http-client.service';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 
 @Injectable()

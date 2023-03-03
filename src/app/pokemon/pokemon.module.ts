@@ -24,7 +24,7 @@ import { TablePaginatorComponent } from '../shared/table-paginator/table-paginat
 import { BackgroundColorByPokemonTypePipe } from './shared/pipe/background-color-by-pokemon-type.pipe';
 import { TextColorByPokemonTypePipe } from './shared/pipe/text-color-by-pokemon-type.pipe';
 
-import { PokemonHttpClientService } from './shared/service/pokemon-http-client.service';
+import { PokemonHttpClientService } from './shared/service/pokemon-http-client/pokemon-http-client.service';
 import { PokemonDetailsPageComponent } from './pokemon-details-page/pokemon-details-page.component';
 import { PokemonTypeSelectorComponent } from './pokemon-type-selector/pokemon-type-selector.component';
 
