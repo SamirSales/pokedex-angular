@@ -2,7 +2,7 @@ import PokemonDetailsModel from '../shared/model/pokemon-details.model';
 import { ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from '../../app-routing.module';
 import { Component } from '@angular/core';
-import { PokemonDetailsService } from '../shared/service/pokemon-details.service';
+import { PokemonDetailsService } from '../shared/service/pokemon-details/pokemon-details.service';
 import { PokemonHttpClientService } from '../shared/service/pokemon-http-client/pokemon-http-client.service';
 import { PokemonInterface } from '../shared/model/pokemon.model';
 
