@@ -7,7 +7,7 @@ describe('HttpErrorService', () => {
     httpErrorService = new HttpErrorService();
   });
 
-  it('#getSubject should return an object', () => {
+  it('#getSubject should return something', () => {
     expect(httpErrorService.getSubject()).toBeDefined();
   });
 });

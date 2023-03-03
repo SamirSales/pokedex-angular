@@ -1,7 +1,7 @@
 import PokemonPageStoreFacade from '../shared/store/pokemon-page-store.facade';
 import { AppRoutingModule } from '../../app-routing.module';
 import { Component, OnInit } from '@angular/core';
-import { PokemonFilteringService } from '../shared/service/pokemon-filtering.service';
+import { PokemonFilteringService } from '../shared/service/pokemon-filtering/pokemon-filtering.service';
 import { PokemonHttpClientService } from '../shared/service/pokemon-http-client/pokemon-http-client.service';
 import { PokemonInterface } from '../shared/model/pokemon.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';

@@ -25,23 +25,23 @@ describe('PokemonHttpClientService', () => {
     expect(pokemonHttpClientService).toBeTruthy();
   });
 
-  it('#getAll should return an object', () => {
+  it('#getAll should return something', () => {
     expect(pokemonHttpClientService.getAll()).toBeDefined();
   });
 
-  it('#getByNameOrId should return an object', () => {
+  it('#getByNameOrId should return something', () => {
     expect(pokemonHttpClientService.getByNameOrId(1)).toBeDefined();
   });
 
-  it('#getEvolutionChainByURL should return an object', () => {
+  it('#getEvolutionChainByURL should return something', () => {
     expect(pokemonHttpClientService.getEvolutionChainByURL('')).toBeDefined();
   });
 
-  it('#getMoreInfoById should return an object', () => {
+  it('#getMoreInfoById should return something', () => {
     expect(pokemonHttpClientService.getMoreInfoById(1)).toBeDefined();
   });
 
-  it('#getPageByNumberAndSize should return an object', () => {
+  it('#getPageByNumberAndSize should return something', () => {
     expect(pokemonHttpClientService.getPageByNumberAndSize(1, 12)).toBeDefined();
   });
 });

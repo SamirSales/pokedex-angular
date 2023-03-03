@@ -27,11 +27,11 @@ describe('PokemonDetailsService', () => {
     expect(pokemonDetailsService).toBeTruthy();
   });
 
-  it('#getEvolutionTreeData should return an object', () => {
+  it('#getEvolutionTreeData should return something', () => {
     expect(pokemonDetailsService.getEvolutionTreeData()).toBeDefined();
   });
 
-  it('#getPokemonDescription should return an object', () => {
+  it('#getPokemonDescription should return something', () => {
     expect(pokemonDetailsService.getPokemonDescription()).toBeDefined();
   });
 });
