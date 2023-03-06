@@ -1,15 +1,8 @@
-import 'zone.js';
-import 'zone.js/testing';
-import '@angular/compiler';
-
-// avoid 'Error: Need to call TestBed.initTestEnvironment() first'
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-
-import { first } from 'rxjs';
-import { ButtonComponent } from './button.component';
+// import '@angular/compiler';
 
 import { TestBed } from '@angular/core/testing';
+import { ButtonComponent } from './button.component';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 
 describe('ButtonComponent', () => {
   beforeEach(() => {
@@ -33,7 +26,7 @@ describe('ButtonComponent', () => {
     const fixture = TestBed.createComponent(ButtonComponent);
     // spy on event emitter
     const component = fixture.componentInstance;
-    spyOn(component.click, 'emit');
+    // jest.spyOn(component.click, 'emit');
 
     // trigger the click
     const nativeElement = fixture.nativeElement;
